@@ -395,3 +395,21 @@ exercises.c:61:12: error: assignment to ‘int’ from ‘int *’ makes integer
 cc1: all warnings being treated as errors
 Compilation failed
 1698efd
+Fri 22 Mar 2024 02:20:23 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:61:17: error: expected expression before ‘int’
+   61 |       suma += (*int)actual;
+      |                 ^~~
+exercises.c:61:21: error: expected ‘;’ before ‘actual’
+   61 |       suma += (*int)actual;
+      |                     ^~~~~~
+      |                     ;
+exercises.c:58:11: error: variable ‘actual’ set but not used [-Werror=unused-but-set-variable]
+   58 |     List *actual = first(L);
+      |           ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+a8e3ec7
