@@ -64,3 +64,42 @@ exercises.c:50:9: error: implicit declaration of function ‘push_back’; did y
 cc1: all warnings being treated as errors
 Compilation failed
 987c07b
+Fri 22 Mar 2024 01:05:47 AM UTC: 
+ exercises.c | 30 ++++++++++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘crea_lista’:
+exercises.c:50:9: error: unknown type name ‘Node’
+   50 |         Node* newNode = (Node*)malloc(sizeof(Node));
+      |         ^~~~
+exercises.c:50:26: error: ‘Node’ undeclared (first use in this function)
+   50 |         Node* newNode = (Node*)malloc(sizeof(Node));
+      |                          ^~~~
+exercises.c:50:26: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:50:31: error: expected expression before ‘)’ token
+   50 |         Node* newNode = (Node*)malloc(sizeof(Node));
+      |                               ^
+exercises.c:57:16: error: request for member ‘data’ in something not a structure or union
+   57 |         newNode->data = elemento;
+      |                ^~
+exercises.c:58:16: error: request for member ‘next’ in something not a structure or union
+   58 |         newNode->next = NULL;
+      |                ^~
+exercises.c:61:14: error: invalid use of incomplete typedef ‘List’
+   61 |         if (L->size == 0) {
+      |              ^~
+exercises.c:62:14: error: invalid use of incomplete typedef ‘List’
+   62 |             L->first = newNode;
+      |              ^~
+exercises.c:65:19: error: ‘current’ undeclared (first use in this function); did you mean ‘popCurrent’?
+   65 |             Node* current = L->first;
+      |                   ^~~~~~~
+      |                   popCurrent
+exercises.c:65:30: error: invalid use of incomplete typedef ‘List’
+   65 |             Node* current = L->first;
+      |                              ^~
+exercises.c:73:10: error: invalid use of incomplete typedef ‘List’
+   73 |         L->size++;
+      |          ^~
+Compilation failed
+a90082b

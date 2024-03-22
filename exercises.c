@@ -44,15 +44,37 @@ Al finalizar retorna la lista creada.
 List* crea_lista() {
     List* L = create_list(); // Crea una lista vacía
 
+    // Crea los nodos y agrega punteros a elementos del 1 al 10 en la lista
     for (int i = 1; i <= 10; i++) {
-        int* elemento = (int*)malloc(sizeof(int)); // Reserva memoria para el elemento
-        *elemento = i; // Asigna el valor del elemento
-        push_back(L, elemento); // Agrega el puntero del elemento a la lista
+        // Reserva memoria para un nodo y un entero
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        int* elemento = (int*)malloc(sizeof(int));
+
+        // Asigna el valor del elemento
+        *elemento = i;
+
+        // Configura el nodo
+        newNode->data = elemento;
+        newNode->next = NULL;
+
+        // Si la lista está vacía, el nuevo nodo será el primer nodo de la lista
+        if (L->size == 0) {
+            L->first = newNode;
+        } else {
+            // Si no, busca el último nodo y enlaza el nuevo nodo al final
+            Node* current = L->first;
+            while (current->next != NULL) {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+
+        // Incrementa el tamaño de la lista
+        L->size++;
     }
 
     return L; // Devuelve la lista creada
 }
-
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
