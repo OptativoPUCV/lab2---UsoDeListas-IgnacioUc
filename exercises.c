@@ -79,7 +79,7 @@ void eliminaElementos(int** L, int elem) {
     // Eliminar los elementos iguales a elem al inicio de la lista
     while (*L != NULL && **L == elem) {
         int* temp = *L;
-        *L = (*L)[1];
+        *L == (*L)[1];
         free(temp);
     }
 
