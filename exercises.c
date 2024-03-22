@@ -43,19 +43,6 @@ Al finalizar retorna la lista creada.
 
 List* crea_lista() {
    List* L = create_list();
-    int suma = 0;
-  
-      int largo = get_size(L);
-      List *actual = first(L);
-      for (int i = 0; i < largo; i++) {
-  
-        suma += (int)actual;
-  
-        actual = next(L);
-  
-      }
-      return suma;
-  }
    return L;
 }
 
@@ -65,6 +52,19 @@ Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
+  int suma = 0;
+
+    int largo = get_size(L);
+    List *actual = first(L);
+    for (int i = 0; i < largo; i++) {
+
+      suma += (int)actual;
+
+      actual = next(L);
+
+    }
+    return suma;
+  }
    return 0;
 }
 
@@ -85,7 +85,7 @@ void eliminaElementos(void* L, int elem) {
         void* nextNode = ((void**)current)[1]; // Guarda el siguiente nodo antes de eliminar el actual
 
         // Verifica si el elemento actual es igual a 'elem'
-        if (current != NULL && *((int*)((void**)current)[0]) == elem) {
+        if (current != NULL && *((int*)((void**)current)[0]) == elem) { {
             // Elimina el nodo actual de la lista
             if (prev == NULL) {
                 // Si el nodo a eliminar es el primero

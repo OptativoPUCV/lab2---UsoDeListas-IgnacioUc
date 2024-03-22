@@ -252,3 +252,25 @@ exercises.c:60:1: error: expected identifier or ‘(’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 440b9f0
+Fri 22 Mar 2024 02:12:54 AM UTC: 
+ exercises.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:61:15: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   61 |       suma += (int)actual;
+      |               ^
+exercises.c: At top level:
+exercises.c:68:4: error: expected identifier or ‘(’ before ‘return’
+   68 |    return 0;
+      |    ^~~~~~
+exercises.c:69:1: error: expected identifier or ‘(’ before ‘}’ token
+   69 | }
+      | ^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:107:11: error: expected ‘}’ before ‘else’
+  107 |         } else {
+      |           ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2f70c1d
