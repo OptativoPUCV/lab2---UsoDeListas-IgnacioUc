@@ -1308,3 +1308,18 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 e603317
+Fri 22 Mar 2024 03:33:33 AM UTC: 
+ exercises.c | 34 ++++++++++++++++++++--------------
+ 1 file changed, 20 insertions(+), 14 deletions(-)
+In file included from test.c:5:
+exercises.c:78:23: error: unknown type name ‘ArrayList’
+   78 | void eliminaElementos(ArrayList* L, int elem) {
+      |                       ^~~~~~~~~
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; did you mean ‘test_elimina_elemento’? [-Werror=implicit-function-declaration]
+  132 |     eliminaElementos(L, elem);
+      |     ^~~~~~~~~~~~~~~~
+      |     test_elimina_elemento
+cc1: all warnings being treated as errors
+Compilation failed
+d4e6067
