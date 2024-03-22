@@ -1333,3 +1333,18 @@ exercises.c:6:10: fatal error: arraylist.h: No such file or directory
 compilation terminated.
 Compilation failed
 96b1147
+Fri 22 Mar 2024 03:34:22 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c:78:23: error: unknown type name ‘ArrayList’
+   78 | void eliminaElementos(ArrayList* L, int elem) {
+      |                       ^~~~~~~~~
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; did you mean ‘test_elimina_elemento’? [-Werror=implicit-function-declaration]
+  132 |     eliminaElementos(L, elem);
+      |     ^~~~~~~~~~~~~~~~
+      |     test_elimina_elemento
+cc1: all warnings being treated as errors
+Compilation failed
+41f4cd9
