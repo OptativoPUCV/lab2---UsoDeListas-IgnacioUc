@@ -113,5 +113,5 @@ int parentesisBalanceados(char *cadena) {
         cadena++;
     }
 
-    return 1;
+    return (balance == 0) ? 1 : 0;
 }
