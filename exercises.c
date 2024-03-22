@@ -76,9 +76,8 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(ArrayList* L, int elem) {
-    ArrayList* temp = newArrayList(); // Lista temporal para almacenar elementos que no son igual a 'elem'
+    ArrayList* temp = newArrayList();
 
-    // Copiamos los elementos que no son igual a 'elem' a la lista temporal
     for (int i = 0; i < size(L); ++i) {
         int* current = (int*)get(L, i);
         if (*current != elem) {
@@ -86,19 +85,15 @@ void eliminaElementos(ArrayList* L, int elem) {
         }
     }
 
-    // Limpiamos la lista original
     clear(L);
 
-    // Copiamos los elementos de la lista temporal a la lista original
     for (int i = 0; i < size(temp); ++i) {
         int* current = (int*)get(temp, i);
         add(L, current);
     }
 
-    // Liberamos la memoria de la lista temporal
     freeArrayList(temp);
 }
-
 
 
 /*
