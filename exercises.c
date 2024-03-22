@@ -43,11 +43,11 @@ Al finalizar retorna la lista creada.
 
 int sumaLista(List *L) {
     int suma = 0;
-    int *dato = (int *)first(L); // Obtener el primer elemento de la lista
+    int *dato = (int *)first(L); // Get the first element of the list
 
     while (dato != NULL) {
-        suma += *dato; // Sumar el valor del elemento actual a la suma
-        dato = (int *)next(L); // Moverse al siguiente elemento
+        suma += *dato; // Add the value of the current element to the sum
+        dato = (int *)next(L); // Move to the next element
     }
 
     return suma;

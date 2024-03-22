@@ -21,3 +21,22 @@ test.c:61:15: error: initialization of ‘List *’ {aka ‘struct List *’} fr
 cc1: all warnings being treated as errors
 Compilation failed
 ec6c102
+Fri 22 Mar 2024 01:02:54 AM UTC: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c:60:5: error: redefinition of ‘sumaLista’
+   60 | int sumaLista(List *L) {
+      |     ^~~~~~~~~
+exercises.c:44:5: note: previous definition of ‘sumaLista’ with type ‘int(List *)’
+   44 | int sumaLista(List *L) {
+      |     ^~~~~~~~~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: implicit declaration of function ‘crea_lista’; did you mean ‘create_list’? [-Werror=implicit-function-declaration]
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+      |               create_list
+test.c:61:15: error: initialization of ‘List *’ {aka ‘struct List *’} from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+cc1: all warnings being treated as errors
+Compilation failed
+1894f00
