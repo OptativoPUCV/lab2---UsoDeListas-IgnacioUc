@@ -116,7 +116,21 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
 
-int parentesisBalanceados(char *cadena) {
-   return 0;
-}
+void copia_pila(Stack* P1, Stack* P2) {
+    Stack* auxStack = create_stack(); // Pila auxiliar para mantener el orden
 
+    // Vacía la pila P1 en la pila auxiliar, manteniendo el orden
+    while (!is_empty_stack(P1)) {
+        void* dato = pop(P1); // Extrae el elemento de P1
+        push(auxStack, dato); // Agrega el elemento a la pila auxiliar
+    }
+
+    // Vacía la pila auxiliar en la pila P2, manteniendo el orden original
+    while (!is_empty_stack(auxStack)) {
+        void* dato = pop(auxStack); // Extrae el elemento de la pila auxiliar
+        push(P2, dato); // Agrega el elemento a P2
+    }
+
+    // Libera la memoria de la pila auxiliar
+    destroy_stack(auxStack);
+}

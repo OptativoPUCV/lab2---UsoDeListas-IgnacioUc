@@ -201,3 +201,28 @@ Fri 22 Mar 2024 01:13:57 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 7a6dab8
+Fri 22 Mar 2024 01:15:31 AM UTC: 
+ exercises.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c:119:6: error: redefinition of ‘copia_pila’
+  119 | void copia_pila(Stack* P1, Stack* P2) {
+      |      ^~~~~~~~~~
+exercises.c:109:6: note: previous definition of ‘copia_pila’ with type ‘void(Stack *, Stack *)’ {aka ‘void(List *, List *)’}
+  109 | void copia_pila(Stack* P1, Stack* P2) {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘copia_pila’:
+exercises.c:123:13: error: implicit declaration of function ‘is_empty_stack’ [-Werror=implicit-function-declaration]
+  123 |     while (!is_empty_stack(P1)) {
+      |             ^~~~~~~~~~~~~~
+exercises.c:135:5: error: implicit declaration of function ‘destroy_stack’ [-Werror=implicit-function-declaration]
+  135 |     destroy_stack(auxStack);
+      |     ^~~~~~~~~~~~~
+test.c: In function ‘test_parentesis_balanceados’:
+test.c:217:9: error: implicit declaration of function ‘parentesisBalanceados’; did you mean ‘test_parentesis_balanceados’? [-Werror=implicit-function-declaration]
+  217 |     if(!parentesisBalanceados(s)){
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         test_parentesis_balanceados
+cc1: all warnings being treated as errors
+Compilation failed
+25a01e1
