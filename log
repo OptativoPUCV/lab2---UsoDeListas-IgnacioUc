@@ -1101,3 +1101,56 @@ exercises.c:106:33: note: expected ‘int **’ but argument is of type ‘Stack
 cc1: all warnings being treated as errors
 Compilation failed
 e6e1f6b
+Fri 22 Mar 2024 03:28:52 AM UTC: 
+ exercises.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:107:24: error: ‘nullptr’ undeclared (first use in this function)
+  107 |     while (*current != nullptr) {
+      |                        ^~~~~~~
+exercises.c:107:24: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:113:17: error: ‘new’ undeclared (first use in this function)
+  113 |     int* temp = new int[size + 1]; // Se agrega 1 para el puntero nulo al final
+      |                 ^~~
+exercises.c:113:21: error: expected ‘,’ or ‘;’ before ‘int’
+  113 |     int* temp = new int[size + 1]; // Se agrega 1 para el puntero nulo al final
+      |                     ^~~
+exercises.c:130:5: error: ‘delete’ undeclared (first use in this function)
+  130 |     delete[] temp;
+      |     ^~~~~~
+exercises.c:130:12: error: expected expression before ‘]’ token
+  130 |     delete[] temp;
+      |            ^
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *’ {aka ‘struct List *’}
+   78 | void eliminaElementos(int** L, int elem) {
+      |                       ~~~~~~^
+test.c: In function ‘test_copia_pila’:
+test.c:175:16: error: passing argument 1 of ‘copia_pila’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  175 |     copia_pila(P1, P2);
+      |                ^~
+      |                |
+      |                Stack * {aka struct List *}
+In file included from test.c:5:
+exercises.c:103:23: note: expected ‘int **’ but argument is of type ‘Stack *’ {aka ‘struct List *’}
+  103 | void copia_pila(int** P1, int** P2) {
+      |                 ~~~~~~^~
+test.c:175:20: error: passing argument 2 of ‘copia_pila’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  175 |     copia_pila(P1, P2);
+      |                    ^~
+      |                    |
+      |                    Stack * {aka struct List *}
+In file included from test.c:5:
+exercises.c:103:33: note: expected ‘int **’ but argument is of type ‘Stack *’ {aka ‘struct List *’}
+  103 | void copia_pila(int** P1, int** P2) {
+      |                           ~~~~~~^~
+cc1: all warnings being treated as errors
+Compilation failed
+74e8bc6
