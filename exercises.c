@@ -44,16 +44,6 @@ Al finalizar retorna la lista creada.
 List* crea_lista() {
    List* L = create_list();
    return L;
-}
-
-/*
-Ejercicio 2.
-Crea una función que reciba una lista de enteros (int*) y 
-retorne la suma de sus elementos.
-*/
-List* crea_lista() {
-   List* L = create_list();
-   return L;
   for (int i = 1; i <= 10; i++){
     int* element = (int*)malloc(sizeof(int));
     *element = i;
@@ -61,6 +51,27 @@ List* crea_lista() {
   }
   return L;
 }
+
+/*
+Ejercicio 2.
+Crea una función que reciba una lista de enteros (int*) y 
+retorne la suma de sus elementos.
+*/
+int sumaLista(List *L) {
+  int suma = 0;
+
+    int largo = get_size(L);
+    List *actual = first(L);
+    for (int i = 0; i < largo; i++) {
+
+      suma += *(int*)actual;
+
+      actual = next(L);
+
+    }
+    return suma;
+  }
+
 /*
 Ejercicio 3.
 Crea una función que reciba una lista de punteros a int (int*) y
