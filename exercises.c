@@ -76,18 +76,21 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(int** L, int elem) {
-    while (**L != elem && **L != 0) {
-        *L = *L + 1;
-    }
-
-    if (**L == elem) {
-        *L = *L + 1;
+    while (*L != NULL && **L == elem) {
+        int* temp = *L;
+        *L = (*L)[1];
+        free(temp);
     }
 
     int* currentPtr = *L;
-    while (*currentPtr != 0 && currentPtr[1] != 0) {
-        *currentPtr = currentPtr[1];
-        currentPtr = &currentPtr[1];
+    while (currentPtr != NULL && currentPtr[1] != NULL) {
+        if (currentPtr[1] == elem) {
+            int* temp = currentPtr[1];
+            currentPtr[1] = temp[1];
+            free(temp);
+        } else {
+            currentPtr = currentPtr[1];
+        }
     }
 }
 
