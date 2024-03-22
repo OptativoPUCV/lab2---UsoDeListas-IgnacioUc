@@ -1438,3 +1438,41 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 86e3e45
+Fri 22 Mar 2024 03:39:49 AM UTC: 
+ exercises.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:96:12: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   96 |         *L = (*L)[1];
+      |            ^
+exercises.c:101:48: error: comparison between pointer and integer [-Werror]
+  101 |     while (currentPtr != NULL && currentPtr[1] != NULL) {
+      |                                                ^~
+exercises.c:103:25: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  103 |             int* temp = currentPtr[1];
+      |                         ^~~~~~~~~~
+exercises.c:107:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  107 |             currentPtr = currentPtr[1];
+      |                        ^
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:93:29: note: expected ‘int **’ but argument is of type ‘List *’ {aka ‘struct List *’}
+   93 | void eliminaElementos(int** L, int elem) {
+      |                       ~~~~~~^
+exercises.c: In function ‘crea_lista’:
+exercises.c:62:1: error: control reaches end of non-void function [-Werror=return-type]
+   62 | }
+      | ^
+At top level:
+exercises.c:46:9: error: ‘crea_lista’ defined but not used [-Werror=unused-function]
+   46 |   void* crea_lista() {
+      |         ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2879ab7
