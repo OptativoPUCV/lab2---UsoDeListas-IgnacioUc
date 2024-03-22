@@ -584,3 +584,63 @@ Fri 22 Mar 2024 03:10:02 AM UTC:
  tests:  4|4
 total_score: 20/70
 fad550f
+Fri 22 Mar 2024 03:10:45 AM UTC: 
+ exercises.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:90:18: error: implicit declaration of function ‘createStack’; did you mean ‘create_stack’? [-Werror=implicit-function-declaration]
+   90 |     Stack* aux = createStack(P1->capacity); // Creamos una pila auxiliar
+      |                  ^~~~~~~~~~~
+      |                  create_stack
+exercises.c:90:32: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+   90 |     Stack* aux = createStack(P1->capacity); // Creamos una pila auxiliar
+      |                                ^~
+exercises.c:93:13: error: implicit declaration of function ‘isEmpty’ [-Werror=implicit-function-declaration]
+   93 |     while (!isEmpty(P1)) {
+      |             ^~~~~~~
+exercises.c:94:21: error: initialization of ‘char’ from ‘void *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   94 |         char item = pop(P1);
+      |                     ^~~
+exercises.c:95:19: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |         push(aux, item);
+      |                   ^~~~
+      |                   |
+      |                   char
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘char’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:96:18: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+   96 |         push(P2, item);
+      |                  ^~~~
+      |                  |
+      |                  char
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘char’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:101:21: error: initialization of ‘char’ from ‘void *’ makes integer from pointer without a cast [-Werror=int-conversion]
+  101 |         char item = pop(aux);
+      |                     ^~~
+exercises.c:102:18: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+  102 |         push(P1, item);
+      |                  ^~~~
+      |                  |
+      |                  char
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘char’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:106:13: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  106 |     free(aux->items);
+      |             ^~
+cc1: all warnings being treated as errors
+Compilation failed
+70d3337
