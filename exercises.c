@@ -41,11 +41,17 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List* crea_lista() {
-   List* L = create_list();
-   return L;
-}
+int sumaLista(List *L) {
+    int suma = 0;
+    int *dato = (int *)first(L); // Obtener el primer elemento de la lista
 
+    while (dato != NULL) {
+        suma += *dato; // Sumar el valor del elemento actual a la suma
+        dato = (int *)next(L); // Moverse al siguiente elemento
+    }
+
+    return suma;
+}
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
