@@ -81,24 +81,21 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(int** L, int elem) {
-    while (*L != NULL && **L == elem) {
-        int* temp = *L;
-        *L = (*L)[1];
-        free(temp);
-    }
+void eliminaElementos(List*L, int elem){
 
-    int* currentPtr = *L;
-    while (currentPtr != NULL && currentPtr[1] != NULL) {
-        if (currentPtr[1] == elem) {
-            int* temp = currentPtr[1];
-            currentPtr[1] = temp[1];
-            free(temp);
-        } else {
-            currentPtr = currentPtr[1];
-        }
+  int* dato;
+
+  dato = (int*)first(L);
+  while(dato != NULL) {
+    if(*dato == elem){
+     dato =  (int*)popCurrent(L);
+    } 
+    else {
+      dato = (int*)next(L);
     }
+  }
 }
+
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.

@@ -1688,3 +1688,9 @@ exercises.c:84:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 a36b2b3
+Fri 22 Mar 2024 09:46:40 PM UTC: 
+ exercises.c | 24 ++++++++++--------------
+ 1 file changed, 10 insertions(+), 14 deletions(-)
+ tests:  4|4
+total_score: 20/70
+053c258
