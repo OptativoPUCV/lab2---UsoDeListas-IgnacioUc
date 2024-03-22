@@ -42,23 +42,8 @@ Al finalizar retorna la lista creada.
 */
 
 List* crea_lista() {
-
-  void* crea_lista() {
-      void* list_head = NULL;
-
-      for (int i = 10; i >= 1; i--) {
-          void* newNode = malloc(sizeof(int));
-          if (newNode == NULL) {
-              // Manejo de error: no se pudo asignar memoria
-              return NULL;
-          }
-          *((int*)newNode) = i;
-          *((void**)newNode + 1) = list_head;
-          list_head = newNode;
-      }
-
-      return list_head;
-  }
+   List* L = create_list();
+   return L;
 }
 
 /*
