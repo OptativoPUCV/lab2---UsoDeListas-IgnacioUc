@@ -114,3 +114,22 @@ exercises.c:54:9: error: implicit declaration of function ‘append’ [-Werror=
 cc1: all warnings being treated as errors
 Compilation failed
 06fb57e
+Fri 22 Mar 2024 01:08:16 AM UTC: 
+ exercises.c | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:58:5: error: unknown type name ‘Node’
+   58 |     Node *current = L->first; // Obtén el primer nodo de la lista
+      |     ^~~~
+exercises.c:58:22: error: invalid use of incomplete typedef ‘List’
+   58 |     Node *current = L->first; // Obtén el primer nodo de la lista
+      |                      ^~
+exercises.c:60:32: error: request for member ‘data’ in something not a structure or union
+   60 |         suma += *((int*)current->data); // Suma el valor del elemento actual
+      |                                ^~
+exercises.c:61:26: error: request for member ‘next’ in something not a structure or union
+   61 |         current = current->next; // Avanza al siguiente nodo
+      |                          ^~
+Compilation failed
+9fbfcb2
