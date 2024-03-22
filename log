@@ -333,3 +333,18 @@ exercises.c:105:11: error: expected ‘}’ before ‘else’
 cc1: all warnings being treated as errors
 Compilation failed
 6d820b0
+Fri 22 Mar 2024 02:16:56 AM UTC: 
+ exercises.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:61:13: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   61 |     suma += (int)actual;
+      |             ^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:104:11: error: expected ‘}’ before ‘else’
+  104 |         } else {
+      |           ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+abd8b19

@@ -61,8 +61,7 @@ int sumaLista(List *L) {
     suma += (int)actual;
   
     actual = next(L);
-  
-    };
+  }
   return suma;
 }
 
