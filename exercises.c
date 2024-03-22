@@ -43,6 +43,19 @@ Al finalizar retorna la lista creada.
 
 List* crea_lista() {
    List* L = create_list();
+    int suma = 0;
+  
+      int largo = get_size(L);
+      List *actual = first(L);
+      for (int i = 0; i < largo; i++) {
+  
+        suma += (int)actual;
+  
+        actual = next(L);
+  
+      }
+      return suma;
+  }
    return L;
 }
 
