@@ -10,15 +10,16 @@
 
 //Funciones auxiliares que puedes utilizar para debuggear tus ejercicios
 //NO MODIFICAR
-List* crea_lista() {
-   List* L = create_list();
-   return L;
-  for (int i = 1; i <= 10; i++){
-    int* element = (int*)malloc(sizeof(int));
-    *element = i;
-    pushBack(L, element);
-  }
-  return L;
+void imprime_lista(List *L) {
+   int *dato;
+   dato = (int*)first(L);
+   printf("[");
+   while(dato != NULL) {
+      printf("%d ", *dato);
+      dato = (int*)next(L);
+   }
+   printf("]\n");
+
 }
 
 //Ojo que la pila se vacía al imprimir y se imprime en orden inverso
@@ -50,21 +51,16 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
 retorne la suma de sus elementos.
 */
-int sumaLista(List *L) {
-  int suma = 0;
-
-    int largo = get_size(L);
-    List *actual = first(L);
-    for (int i = 0; i < largo; i++) {
-
-      suma += *(int*)actual;
-
-      actual = next(L);
-
-    }
-    return suma;
+List* crea_lista() {
+   List* L = create_list();
+   return L;
+  for (int i = 1; i <= 10; i++){
+    int* element = (int*)malloc(sizeof(int));
+    *element = i;
+    pushBack(L, element);
   }
-
+  return L;
+}
 /*
 Ejercicio 3.
 Crea una función que reciba una lista de punteros a int (int*) y
@@ -92,7 +88,6 @@ void eliminaElementos(int** L, int elem) {
         }
     }
 }
-
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.
