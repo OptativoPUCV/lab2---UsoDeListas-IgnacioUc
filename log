@@ -1035,3 +1035,69 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 3fe13cd
+Fri 22 Mar 2024 03:27:50 AM UTC: 
+ exercises.c | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:81:12: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   81 |         *L = (*L)[1];
+      |            ^
+exercises.c:86:48: error: comparison between pointer and integer [-Werror]
+   86 |     while (currentPtr != NULL && currentPtr[1] != NULL) {
+      |                                                ^~
+exercises.c:88:25: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   88 |             int* temp = currentPtr[1];
+      |                         ^~~~~~~~~~
+exercises.c:92:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   92 |             currentPtr = currentPtr[1];
+      |                        ^
+exercises.c: In function ‘copia_pila’:
+exercises.c:110:24: error: ‘nullptr’ undeclared (first use in this function)
+  110 |     while (*current != nullptr) {
+      |                        ^~~~~~~
+exercises.c:110:24: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:116:17: error: ‘new’ undeclared (first use in this function)
+  116 |     int* temp = new int[size + 1]; // Se agrega 1 para el puntero nulo al final
+      |                 ^~~
+exercises.c:116:21: error: expected ‘,’ or ‘;’ before ‘int’
+  116 |     int* temp = new int[size + 1]; // Se agrega 1 para el puntero nulo al final
+      |                     ^~~
+exercises.c:133:5: error: ‘delete’ undeclared (first use in this function)
+  133 |     delete[] temp;
+      |     ^~~~~~
+exercises.c:133:12: error: expected expression before ‘]’ token
+  133 |     delete[] temp;
+      |            ^
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *’ {aka ‘struct List *’}
+   78 | void eliminaElementos(int** L, int elem) {
+      |                       ~~~~~~^
+test.c: In function ‘test_copia_pila’:
+test.c:175:16: error: passing argument 1 of ‘copia_pila’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  175 |     copia_pila(P1, P2);
+      |                ^~
+      |                |
+      |                Stack * {aka struct List *}
+In file included from test.c:5:
+exercises.c:106:23: note: expected ‘int **’ but argument is of type ‘Stack *’ {aka ‘struct List *’}
+  106 | void copia_pila(int** P1, int** P2) {
+      |                 ~~~~~~^~
+test.c:175:20: error: passing argument 2 of ‘copia_pila’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  175 |     copia_pila(P1, P2);
+      |                    ^~
+      |                    |
+      |                    Stack * {aka struct List *}
+In file included from test.c:5:
+exercises.c:106:33: note: expected ‘int **’ but argument is of type ‘Stack *’ {aka ‘struct List *’}
+  106 | void copia_pila(int** P1, int** P2) {
+      |                           ~~~~~~^~
+cc1: all warnings being treated as errors
+Compilation failed
+e6e1f6b
