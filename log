@@ -567,3 +567,20 @@ Fri 22 Mar 2024 03:09:45 AM UTC:
  tests:  4|4
 total_score: 20/70
 8399cdb
+Fri 22 Mar 2024 03:09:55 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:116:30: error: the omitted middle operand in ‘?:’ will always be ‘true’, suggest explicit middle operand [-Werror=parentheses]
+  116 |     return (balance == 0) ?  : 0;
+      |                              ^
+cc1: all warnings being treated as errors
+Compilation failed
+fad550f
+Fri 22 Mar 2024 03:10:02 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|4
+total_score: 20/70
+fad550f
