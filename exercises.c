@@ -53,16 +53,18 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
   int suma = 0;
-  
-  int largo = get_size(L);
-  List *actual = first(L);
-  for (int i = 0; i < largo; i++) {
-  
-    suma += (int)actual;
-  
-    actual = next(L);
+
+    int largo = get_size(L);
+    List *actual = first(L);
+    for (int i = 0; i < largo; i++) {
+
+      suma += (int)actual;
+
+      actual = next(L);
+
+    }
+    return suma;
   }
-  return suma;
 }
 
 /*
@@ -74,39 +76,8 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(void* L, int elem) {
-    void* current = ((void**)L)[0]; // Comienza desde el primer nodo
-    void* prev = NULL; // Para almacenar el nodo anterior
+void eliminaElementos(List*L, int elem){
 
-    while (current != NULL) {
-        void* nextNode = ((void**)current)[1]; // Guarda el siguiente nodo antes de eliminar el actual
-
-        // Verifica si el elemento actual es igual a 'elem'
-        if (current != NULL && *((int*)((void**)current)[0]) == elem) { {
-            // Elimina el nodo actual de la lista
-            if (prev == NULL) {
-                // Si el nodo a eliminar es el primero
-                ((void**)L)[0] = ((void**)current)[1];
-            } else {
-                // Si el nodo a eliminar no es el primero
-                ((void**)prev)[1] = ((void**)current)[1];
-            }
-
-            // Si el nodo a eliminar es el último
-            if (((void**)current)[1] == NULL) {
-                ((void**)L)[1] = prev;
-            }
-
-            free(((void**)current)[0]); // Libera la memoria del nodo
-            free(current); // Libera la memoria del nodo (previo)
-            free(prev); // Libera la memoria del nodo (actual)
-            ((int*)L)[2]--; // Reduce el tamaño de la lista
-        } else {
-            prev = current; // Actualiza el nodo anterior solo si no se elimina el actual
-        }
-
-        current = nextNode; // Avanza al siguiente nodo
-    }
 }
 
 /*
