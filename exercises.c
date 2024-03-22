@@ -59,18 +59,16 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
   int suma = 0;
+  int* dato;
 
-    int largo = get_size(L);
-    List *actual = first(L);
-    for (int i = 0; i < largo; i++) {
-
-      suma += *(int*)actual;
-
-      actual = next(L);
-
-    }
-    return suma;
+  dato = (int*)first(L);
+  while(dato != NULL){
+    suma += *dato;
+    dato = (int*)next(L);
   }
+
+   return suma;
+}
 
 /*
 Ejercicio 3.
@@ -104,6 +102,16 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
+  Stack* auxStack = create_stack();
+  while (P1 == NULL) {
+    void* data = pop(P1);
+    push(P2, data);
+    push(auxStack, data);
+  }
+  while (auxStack == NULL) {
+    void* data = pop(auxStack);
+    push(P1, data);
+  }
 }
 
 /*
@@ -114,21 +122,16 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-    int balance = 0;
-
-    while (*cadena != '\0') {
-        if (*cadena == '(') {
-            balance++;
-        } else if (*cadena == ')') {
-            balance--;
-        }
-
-        if (balance < 0) {
-            return 0; // Paréntesis desbalanceados
-        }
-
-        cadena++;
+  Stack* stack = create_stack();
+  char c;
+  for (int i = 0; i < strlen(cadena); i++) {
+    c = cadena[i];
+    if (c == '(') {
+      push(stack, (void*)&c);
+    } 
+    else if (c == ')') {
+      if (stack == NULL || (char)pop(stack) != '(') {
+        return 0;
+      }
     }
-
-    return (balance == 0) ? 1 : 0;
-}
+  }
