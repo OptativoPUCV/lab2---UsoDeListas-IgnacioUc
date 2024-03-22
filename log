@@ -363,3 +363,14 @@ exercises.c:68:1: error: expected identifier or ‘(’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 ce3f171
+Fri 22 Mar 2024 02:17:31 AM UTC: 
+ exercises.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:61:15: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   61 |       suma += (int)actual;
+      |               ^
+cc1: all warnings being treated as errors
+Compilation failed
+6306403

@@ -65,7 +65,6 @@ int sumaLista(List *L) {
     }
     return suma;
   }
-}
 
 /*
 Ejercicio 3.
