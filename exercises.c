@@ -41,9 +41,21 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List* crea_lista() {
-   List* L = create_list();
-   return L;
+ListNode* crea_lista() {
+    ListNode* head = NULL;  // Inicializa la cabeza de la lista
+    ListNode* current = NULL;
+    int i;
+    for (i = 1; i <= 10; i++) {
+        ListNode* newNode = create_node(i);  // Crea un nuevo nodo con el dato i
+        if (head == NULL) {
+            head = newNode;  // Si es el primer nodo, se establece como cabeza
+            current = head;  // Se establece el nodo actual como la cabeza
+        } else {
+            current->next = newNode;  // Si no es el primer nodo, se enlaza al final de la lista
+            current = current->next;   // Se mueve el nodo actual al recién agregado
+        }
+    }
+    return head;  // Devuelve la cabeza de la lista
 }
 
 /*

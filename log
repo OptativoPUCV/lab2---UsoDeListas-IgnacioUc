@@ -419,3 +419,37 @@ Fri 22 Mar 2024 02:20:37 AM UTC:
  tests:  1|4
 total_score: 10/70
 538b505
+Fri 22 Mar 2024 02:31:39 AM UTC: 
+ exercises.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c:44:1: error: unknown type name ‘ListNode’
+   44 | ListNode* crea_lista() {
+      | ^~~~~~~~
+exercises.c: In function ‘crea_lista’:
+exercises.c:45:5: error: unknown type name ‘ListNode’
+   45 |     ListNode* head = NULL;  // Inicializa la cabeza de la lista
+      |     ^~~~~~~~
+exercises.c:46:5: error: unknown type name ‘ListNode’
+   46 |     ListNode* current = NULL;
+      |     ^~~~~~~~
+exercises.c:49:9: error: unknown type name ‘ListNode’
+   49 |         ListNode* newNode = create_node(i);  // Crea un nuevo nodo con el dato i
+      |         ^~~~~~~~
+exercises.c:49:29: error: implicit declaration of function ‘create_node’ [-Werror=implicit-function-declaration]
+   49 |         ListNode* newNode = create_node(i);  // Crea un nuevo nodo con el dato i
+      |                             ^~~~~~~~~~~
+exercises.c:49:29: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+exercises.c:54:20: error: request for member ‘next’ in something not a structure or union
+   54 |             current->next = newNode;  // Si no es el primer nodo, se enlaza al final de la lista
+      |                    ^~
+exercises.c:55:30: error: request for member ‘next’ in something not a structure or union
+   55 |             current = current->next;   // Se mueve el nodo actual al recién agregado
+      |                              ^~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: initialization of ‘List *’ {aka ‘struct List *’} from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+baf8088
