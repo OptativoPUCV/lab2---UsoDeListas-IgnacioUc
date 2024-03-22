@@ -374,3 +374,13 @@ exercises.c:61:15: error: cast from pointer to integer of different size [-Werro
 cc1: all warnings being treated as errors
 Compilation failed
 6306403
+Fri 22 Mar 2024 02:18:03 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘sumaLista’:
+exercises.c:61:15: error: invalid use of incomplete typedef ‘List’
+   61 |       suma += *actual;
+      |               ^
+Compilation failed
+bdc07eb
