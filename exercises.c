@@ -57,7 +57,7 @@ int sumaLista(List *L) {
     List *actual = first(L);
     for (int i = 0; i < largo; i++) {
 
-      suma += (int)actual;
+      suma += *actual;
 
       actual = next(L);
 
