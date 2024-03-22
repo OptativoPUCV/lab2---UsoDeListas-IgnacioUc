@@ -40,3 +40,15 @@ test.c:61:15: error: initialization of ‘List *’ {aka ‘struct List *’} fr
 cc1: all warnings being treated as errors
 Compilation failed
 1894f00
+Fri 22 Mar 2024 01:03:52 AM UTC: 
+ exercises.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘crea_lista’:
+exercises.c:51:9: error: implicit declaration of function ‘push_back’; did you mean ‘pushBack’? [-Werror=implicit-function-declaration]
+   51 |         push_back(L, elemento); // Agregar el puntero del elemento a la lista
+      |         ^~~~~~~~~
+      |         pushBack
+cc1: all warnings being treated as errors
+Compilation failed
+1cdf3f4

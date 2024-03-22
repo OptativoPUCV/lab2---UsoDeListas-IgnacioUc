@@ -41,16 +41,17 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-int sumaLista(List *L) {
-    int suma = 0;
-    int *dato = (int *)first(L); // Get the first element of the list
+List* crea_lista() {
+    List* L = create_list(); // Crear una lista vacía
 
-    while (dato != NULL) {
-        suma += *dato; // Add the value of the current element to the sum
-        dato = (int *)next(L); // Move to the next element
+    // Iterar del 1 al 10 para agregar elementos a la lista
+    for (int i = 1; i <= 10; i++) {
+        int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
+        *elemento = i; // Asignar el valor del elemento
+        push_back(L, elemento); // Agregar el puntero del elemento a la lista
     }
 
-    return suma;
+    return L; // Devolver la lista creada
 }
 /*
 Ejercicio 2.
