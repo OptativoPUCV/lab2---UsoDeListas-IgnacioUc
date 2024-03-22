@@ -75,19 +75,12 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(int** L, int elem) {
-    while (**L != elem && **L != 0) {
-        *L = *L + 1;
+void eliminaElementos(Stack* L, int elem) {
+    while (!isEmpty(L) && stack_top(L) != elem) {
+        stack_pop(L);
     }
-
-    if (**L == elem) {
-        *L = *L + 1;
-    }
-
-    int* currentPtr = *L;
-    while (*currentPtr != 0 && currentPtr[1] != 0) {
-        *currentPtr = currentPtr[1];
-        currentPtr = &currentPtr[1];
+    if (!isEmpty(L) && stack_top(L) == elem) {
+        stack_pop(L);
     }
 }
 
@@ -100,19 +93,22 @@ El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
 
-void eliminaElementos(int** L, int elem) {
-    while (**L != elem && **L != 0) {
-        *L = *L + 1;
+void copia_pila(Stack* P1, Stack* P2) {
+    Stack aux;
+    initStack(&aux);
+
+    // Paso 1: Transferir elementos de P1 a la pila auxiliar
+    while (!isEmpty(P1)) {
+        push(&aux, stack_top(P1));
+        stack_pop(P1);
     }
 
-    if (**L == elem) {
-        *L = *L + 1;
-    }
-
-    int* currentPtr = *L;
-    while (*currentPtr != 0 && currentPtr[1] != 0) {
-        *currentPtr = currentPtr[1];
-        currentPtr = &currentPtr[1];
+    // Paso 2: Transferir elementos de la pila auxiliar a P1 y P2 para mantener el orden
+    while (!isEmpty(&aux)) {
+        int elemento = stack_top(&aux);
+        push(P1, elemento); // Devolviendo los elementos a P1 (opcional)
+        push(P2, elemento); // Copiando los elementos a P2
+        stack_pop(&aux);
     }
 }
 

@@ -1182,3 +1182,64 @@ test.c:175:5: error: implicit declaration of function ‘copia_pila’; did you 
 cc1: all warnings being treated as errors
 Compilation failed
 9085016
+Fri 22 Mar 2024 03:30:43 AM UTC: 
+ exercises.c | 40 ++++++++++++++++++----------------------
+ 1 file changed, 18 insertions(+), 22 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:79:13: error: implicit declaration of function ‘isEmpty’ [-Werror=implicit-function-declaration]
+   79 |     while (!isEmpty(L) && stack_top(L) != elem) {
+      |             ^~~~~~~
+exercises.c:79:27: error: implicit declaration of function ‘stack_top’ [-Werror=implicit-function-declaration]
+   79 |     while (!isEmpty(L) && stack_top(L) != elem) {
+      |                           ^~~~~~~~~
+exercises.c:80:9: error: implicit declaration of function ‘stack_pop’ [-Werror=implicit-function-declaration]
+   80 |         stack_pop(L);
+      |         ^~~~~~~~~
+exercises.c: In function ‘copia_pila’:
+exercises.c:97:11: error: storage size of ‘aux’ isn’t known
+   97 |     Stack aux;
+      |           ^~~
+exercises.c:98:5: error: implicit declaration of function ‘initStack’; did you mean ‘initstate’? [-Werror=implicit-function-declaration]
+   98 |     initStack(&aux);
+      |     ^~~~~~~~~
+      |     initstate
+exercises.c:102:20: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+  102 |         push(&aux, stack_top(P1));
+      |                    ^~~~~~~~~~~~~
+      |                    |
+      |                    int
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘int’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:109:18: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+  109 |         push(P1, elemento); // Devolviendo los elementos a P1 (opcional)
+      |                  ^~~~~~~~
+      |                  |
+      |                  int
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘int’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:110:18: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+  110 |         push(P2, elemento); // Copiando los elementos a P2
+      |                  ^~~~~~~~
+      |                  |
+      |                  int
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘int’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:97:11: error: unused variable ‘aux’ [-Werror=unused-variable]
+   97 |     Stack aux;
+      |           ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+14c1c77
