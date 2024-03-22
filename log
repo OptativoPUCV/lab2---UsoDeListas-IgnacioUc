@@ -1393,3 +1393,18 @@ test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; di
 cc1: all warnings being treated as errors
 Compilation failed
 a1f4514
+Fri 22 Mar 2024 03:37:31 AM UTC: 
+ exercises.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+In file included from test.c:5:
+exercises.c:78:23: error: unknown type name ‘ArrayList’
+   78 | void eliminaElementos(ArrayList* L, int elem) {
+      |                       ^~~~~~~~~
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; did you mean ‘test_elimina_elemento’? [-Werror=implicit-function-declaration]
+  132 |     eliminaElementos(L, elem);
+      |     ^~~~~~~~~~~~~~~~
+      |     test_elimina_elemento
+cc1: all warnings being treated as errors
+Compilation failed
+0502639
