@@ -727,3 +727,30 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 1b4f4e3
+Fri 22 Mar 2024 03:17:41 AM UTC: 
+ exercises.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:80:24: error: comparison between pointer and integer [-Werror]
+   80 |     while (*currentPtr != NULL) {
+      |                        ^~
+exercises.c:83:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   83 |             currentPtr = currentPtr[1];
+      |                        ^
+exercises.c:86:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   86 |             currentPtr = currentPtr[1];
+      |                        ^
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:78:28: note: expected ‘int *’ but argument is of type ‘List *’ {aka ‘struct List *’}
+   78 | void eliminaElementos(int* L, int elem) {
+      |                       ~~~~~^
+cc1: all warnings being treated as errors
+Compilation failed
+d13c8a1
