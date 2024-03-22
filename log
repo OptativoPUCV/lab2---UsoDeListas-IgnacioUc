@@ -226,3 +226,8 @@ test.c:217:9: error: implicit declaration of function â€˜parentesisBalanceadosâ€
 cc1: all warnings being treated as errors
 Compilation failed
 25a01e1
+Fri 22 Mar 2024 01:15:39 AM UTC: 
+ exercises.c | 18 ++----------------
+ 1 file changed, 2 insertions(+), 16 deletions(-)
+ tests:  0|0
+abfef92
