@@ -76,12 +76,14 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(int** L, int elem) {
+    // Eliminar los elementos iguales a elem al inicio de la lista
     while (*L != NULL && **L == elem) {
         int* temp = *L;
         *L = (*L)[1];
         free(temp);
     }
 
+    // Recorrer el resto de la lista para eliminar los elementos iguales a elem
     int* currentPtr = *L;
     while (currentPtr != NULL && currentPtr[1] != NULL) {
         if (currentPtr[1] == elem) {
@@ -93,6 +95,7 @@ void eliminaElementos(int** L, int elem) {
         }
     }
 }
+
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.
