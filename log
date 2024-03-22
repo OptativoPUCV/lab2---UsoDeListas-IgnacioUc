@@ -533,3 +533,9 @@ test.c:61:15: error: void value not ignored as it ought to be
 cc1: all warnings being treated as errors
 Compilation failed
 3e56921
+Fri 22 Mar 2024 03:08:20 AM UTC: 
+ exercises.c | 50 +++++++++++++++++++++-----------------------------
+ 1 file changed, 21 insertions(+), 29 deletions(-)
+ tests:  4|4
+total_score: 20/70
+3f0f767

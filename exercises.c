@@ -41,36 +41,11 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List crea_lista() {
-    // Declaración e inicialización de la cabeza de la lista
-    ListNode* head = (ListNode*)malloc(sizeof(ListNode));
-    if (head == NULL) {
-        printf("Error: No se pudo asignar memoria para el nodo cabeza.\n");
-        exit(EXIT_FAILURE);
-    }
-    head->data = 1;         // Establece el dato del primer nodo
-    head->next = NULL;      // Inicializa el siguiente nodo como NULL
-
-    // Declaración de un puntero para el nodo actual
-    ListNode* current = head;
-
-    // Agregar nodos adicionales con datos del 2 al 10
-    int i;
-    for (i = 2; i <= 10; i++) {
-        ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
-        if (newNode == NULL) {
-            printf("Error: No se pudo asignar memoria para el nuevo nodo.\n");
-            exit(EXIT_FAILURE);
-        }
-        newNode->data = i;        // Establece el dato del nuevo nodo
-        newNode->next = NULL;     // Inicializa el siguiente nodo como NULL
-        current->next = newNode;  // Enlaza el nuevo nodo al final de la lista
-        current = newNode;        // Establece el nuevo nodo como el nodo actual
-    }
-
-    // Retorno de la cabeza de la lista
-    return head;
+List* crea_lista() {
+   List* L = create_list();
+   return L;
 }
+
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
@@ -122,6 +97,23 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-   return 0;
+    int balance = 0;
+
+    while (*cadena != '\0') {
+        if (*cadena == '(') {
+            balance++;
+        } else if (*cadena == ')') {
+            balance--;
+        }
+
+        if (balance < 0) {
+            return 0; // Paréntesis desbalanceados
+        }
+
+        cadena++;
+    }
+
+    return (balance == 0) ? 1 : 0;
 }
+
 
