@@ -41,7 +41,7 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List* crea_lista() {
+List crea_lista() {
     // Declaración e inicialización de la cabeza de la lista
     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
     if (head == NULL) {
@@ -69,9 +69,8 @@ List* crea_lista() {
     }
 
     // Retorno de la cabeza de la lista
-    return (List*)head;
+    return head;
 }
-
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 

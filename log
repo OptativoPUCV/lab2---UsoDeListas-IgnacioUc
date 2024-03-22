@@ -486,3 +486,50 @@ exercises.c:60:39: error: expected expression before ‘)’ token
       |                                       ^
 Compilation failed
 8fbbdf4
+Fri 22 Mar 2024 02:33:31 AM UTC: 
+ exercises.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c:44:6: error: return type is an incomplete type
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘crea_lista’:
+exercises.c:46:5: error: unknown type name ‘ListNode’
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |     ^~~~~~~~
+exercises.c:46:23: error: ‘ListNode’ undeclared (first use in this function)
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |                       ^~~~~~~~
+exercises.c:46:23: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:46:32: error: expected expression before ‘)’ token
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |                                ^
+exercises.c:51:9: error: request for member ‘data’ in something not a structure or union
+   51 |     head->data = 1;         // Establece el dato del primer nodo
+      |         ^~
+exercises.c:52:9: error: request for member ‘next’ in something not a structure or union
+   52 |     head->next = NULL;      // Inicializa el siguiente nodo como NULL
+      |         ^~
+exercises.c:55:15: error: ‘current’ undeclared (first use in this function); did you mean ‘popCurrent’?
+   55 |     ListNode* current = head;
+      |               ^~~~~~~
+      |               popCurrent
+exercises.c:60:19: error: ‘newNode’ undeclared (first use in this function)
+   60 |         ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
+      |                   ^~~~~~~
+exercises.c:60:39: error: expected expression before ‘)’ token
+   60 |         ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
+      |                                       ^
+exercises.c:72:12: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   72 |     return head;
+      |            ^~~~
+exercises.c:44:6: note: declared here
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: void value not ignored as it ought to be
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3e56921
