@@ -97,25 +97,21 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-  int parentesisBalanceados(char *cadena) {
-      int balance = 0;
+    int balance = 0;
 
-      while (*cadena != '\0') {
-          if (*cadena == '(') {
-              balance++;
-          } else if (*cadena == ')') {
-              balance--;
-          }
+    while (*cadena != '\0') {
+        if (*cadena == '(') {
+            balance++;
+        } else if (*cadena == ')') {
+            balance--;
+        }
 
-          if (balance < 0) {
-              return 0; // Paréntesis desbalanceados
-          }
+        if (balance < 0) {
+            return 0; // Paréntesis desbalanceados
+        }
 
-          cadena++;
-      }
+        cadena++;
+    }
 
-      return (balance == 0) ? 1 : 0;
-  }
-   return 0;
+    return (balance == 0) ? 1 : 0;
 }
-
