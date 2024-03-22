@@ -59,19 +59,16 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
   int suma = 0;
+  int* dato;
 
-    int largo = get_size(L);
-    List *actual = first(L);
-    for (int i = 0; i < largo; i++) {
-
-      suma += *(int*)actual;
-
-      actual = next(L);
-
-    }
-    return suma;
+  dato = (int*)first(L);
+  while(dato != NULL){
+    suma += *dato;
+    dato = (int*)next(L);
   }
 
+   return suma;
+}
 /*
 Ejercicio 3.
 Crea una función que reciba una lista de punteros a int (int*) y
