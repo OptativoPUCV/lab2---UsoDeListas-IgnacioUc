@@ -100,34 +100,20 @@ El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
 
-void copia_pila(int** P1, int** P2) {
-    // Contar cuántos elementos hay en P1
-    int size = 0;
-    int* current = *P1;
-    while (*current != nullptr) {
-        size++;
-        current++;
+void eliminaElementos(int** L, int elem) {
+    while (**L != elem && **L != 0) {
+        *L = *L + 1;
     }
 
-    // Crear un arreglo dinámico para almacenar los elementos de P1
-    int* temp = new int[size + 1]; // Se agrega 1 para el puntero nulo al final
-    current = *P1;
-    for (int i = 0; i < size; ++i) {
-        temp[i] = *current;
-        current++;
-    }
-    temp[size] = nullptr; // Marcar el final del arreglo con un puntero nulo
-
-    // Copiar los elementos de temp a P1 y P2 para mantener el orden
-    for (int i = 0; i < size; ++i) {
-        **P1 = temp[i];
-        **P2 = temp[i];
-        (*P1)++;
-        (*P2)++;
+    if (**L == elem) {
+        *L = *L + 1;
     }
 
-    // Liberar la memoria del arreglo temporal
-    delete[] temp;
+    int* currentPtr = *L;
+    while (*currentPtr != 0 && currentPtr[1] != 0) {
+        *currentPtr = currentPtr[1];
+        currentPtr = &currentPtr[1];
+    }
 }
 
 /*

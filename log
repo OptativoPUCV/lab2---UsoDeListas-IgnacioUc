@@ -1154,3 +1154,31 @@ exercises.c:103:33: note: expected ‘int **’ but argument is of type ‘Stack
 cc1: all warnings being treated as errors
 Compilation failed
 74e8bc6
+Fri 22 Mar 2024 03:29:09 AM UTC: 
+ exercises.c | 42 ++++++++++++++----------------------------
+ 1 file changed, 14 insertions(+), 28 deletions(-)
+In file included from test.c:5:
+exercises.c:103:6: error: redefinition of ‘eliminaElementos’
+  103 | void eliminaElementos(int** L, int elem) {
+      |      ^~~~~~~~~~~~~~~~
+exercises.c:78:6: note: previous definition of ‘eliminaElementos’ with type ‘void(int **, int)’
+   78 | void eliminaElementos(int** L, int elem) {
+      |      ^~~~~~~~~~~~~~~~
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:103:29: note: expected ‘int **’ but argument is of type ‘List *’ {aka ‘struct List *’}
+  103 | void eliminaElementos(int** L, int elem) {
+      |                       ~~~~~~^
+test.c: In function ‘test_copia_pila’:
+test.c:175:5: error: implicit declaration of function ‘copia_pila’; did you mean ‘test_copia_pila’? [-Werror=implicit-function-declaration]
+  175 |     copia_pila(P1, P2);
+      |     ^~~~~~~~~~
+      |     test_copia_pila
+cc1: all warnings being treated as errors
+Compilation failed
+9085016
