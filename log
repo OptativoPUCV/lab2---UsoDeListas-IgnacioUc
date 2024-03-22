@@ -453,3 +453,36 @@ test.c:61:15: error: initialization of ‘List *’ {aka ‘struct List *’} fr
 cc1: all warnings being treated as errors
 Compilation failed
 baf8088
+Fri 22 Mar 2024 02:32:14 AM UTC: 
+ exercises.c | 38 ++++++++++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 12 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘crea_lista’:
+exercises.c:46:5: error: unknown type name ‘ListNode’
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |     ^~~~~~~~
+exercises.c:46:23: error: ‘ListNode’ undeclared (first use in this function)
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |                       ^~~~~~~~
+exercises.c:46:23: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:46:32: error: expected expression before ‘)’ token
+   46 |     ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+      |                                ^
+exercises.c:51:9: error: request for member ‘data’ in something not a structure or union
+   51 |     head->data = 1;         // Establece el dato del primer nodo
+      |         ^~
+exercises.c:52:9: error: request for member ‘next’ in something not a structure or union
+   52 |     head->next = NULL;      // Inicializa el siguiente nodo como NULL
+      |         ^~
+exercises.c:55:15: error: ‘current’ undeclared (first use in this function); did you mean ‘popCurrent’?
+   55 |     ListNode* current = head;
+      |               ^~~~~~~
+      |               popCurrent
+exercises.c:60:19: error: ‘newNode’ undeclared (first use in this function)
+   60 |         ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
+      |                   ^~~~~~~
+exercises.c:60:39: error: expected expression before ‘)’ token
+   60 |         ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
+      |                                       ^
+Compilation failed
+8fbbdf4

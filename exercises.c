@@ -41,21 +41,35 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-ListNode* crea_lista() {
-    ListNode* head = NULL;  // Inicializa la cabeza de la lista
-    ListNode* current = NULL;
-    int i;
-    for (i = 1; i <= 10; i++) {
-        ListNode* newNode = create_node(i);  // Crea un nuevo nodo con el dato i
-        if (head == NULL) {
-            head = newNode;  // Si es el primer nodo, se establece como cabeza
-            current = head;  // Se establece el nodo actual como la cabeza
-        } else {
-            current->next = newNode;  // Si no es el primer nodo, se enlaza al final de la lista
-            current = current->next;   // Se mueve el nodo actual al recién agregado
-        }
+List* crea_lista() {
+    // Declaración e inicialización de la cabeza de la lista
+    ListNode* head = (ListNode*)malloc(sizeof(ListNode));
+    if (head == NULL) {
+        printf("Error: No se pudo asignar memoria para el nodo cabeza.\n");
+        exit(EXIT_FAILURE);
     }
-    return head;  // Devuelve la cabeza de la lista
+    head->data = 1;         // Establece el dato del primer nodo
+    head->next = NULL;      // Inicializa el siguiente nodo como NULL
+
+    // Declaración de un puntero para el nodo actual
+    ListNode* current = head;
+
+    // Agregar nodos adicionales con datos del 2 al 10
+    int i;
+    for (i = 2; i <= 10; i++) {
+        ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));  // Crea un nuevo nodo
+        if (newNode == NULL) {
+            printf("Error: No se pudo asignar memoria para el nuevo nodo.\n");
+            exit(EXIT_FAILURE);
+        }
+        newNode->data = i;        // Establece el dato del nuevo nodo
+        newNode->next = NULL;     // Inicializa el siguiente nodo como NULL
+        current->next = newNode;  // Enlaza el nuevo nodo al final de la lista
+        current = newNode;        // Establece el nuevo nodo como el nodo actual
+    }
+
+    // Retorno de la cabeza de la lista
+    return (List*)head;
 }
 
 /*
