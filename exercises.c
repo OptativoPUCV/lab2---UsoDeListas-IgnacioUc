@@ -72,7 +72,7 @@ void eliminaElementos(void* L, int elem) {
         void* nextNode = ((void**)current)[1]; // Guarda el siguiente nodo antes de eliminar el actual
 
         // Verifica si el elemento actual es igual a 'elem'
-        if (current != NULL && *((int*)((void**)current)[0]) == elem) { {
+        if (current != NULL && *((int*)((void**)current)[0]) == elem) {
             // Elimina el nodo actual de la lista
             if (prev == NULL) {
                 // Si el nodo a eliminar es el primero
