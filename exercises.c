@@ -42,17 +42,17 @@ Al finalizar retorna la lista creada.
 */
 
 List* crea_lista() {
-    List* L = create_list(); // Crear una lista vacía
+    List* L = create_list(); // Crea una lista vacía
 
-    // Iterar del 1 al 10 para agregar elementos a la lista
     for (int i = 1; i <= 10; i++) {
-        int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
-        *elemento = i; // Asignar el valor del elemento
-        push_back(L, elemento); // Agregar el puntero del elemento a la lista
+        int* elemento = (int*)malloc(sizeof(int)); // Reserva memoria para el elemento
+        *elemento = i; // Asigna el valor del elemento
+        push_back(L, elemento); // Agrega el puntero del elemento a la lista
     }
 
-    return L; // Devolver la lista creada
+    return L; // Devuelve la lista creada
 }
+
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
