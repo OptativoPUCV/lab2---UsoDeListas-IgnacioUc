@@ -10,16 +10,15 @@
 
 //Funciones auxiliares que puedes utilizar para debuggear tus ejercicios
 //NO MODIFICAR
-void imprime_lista(List *L) {
-   int *dato;
-   dato = (int*)first(L);
-   printf("[");
-   while(dato != NULL) {
-      printf("%d ", *dato);
-      dato = (int*)next(L);
-   }
-   printf("]\n");
-
+List* crea_lista() {
+   List* L = create_list();
+   return L;
+  for (int i = 1; i <= 10; i++){
+    int* element = (int*)malloc(sizeof(int));
+    *element = i;
+    pushBack(L, element);
+  }
+  return L;
 }
 
 //Ojo que la pila se vacía al imprimir y se imprime en orden inverso

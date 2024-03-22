@@ -1582,3 +1582,39 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 d7294e8
+Fri 22 Mar 2024 09:41:22 PM UTC: 
+ exercises.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
+In file included from test.c:5:
+exercises.c:43:7: error: redefinition of ‘crea_lista’
+   43 | List* crea_lista() {
+      |       ^~~~~~~~~~
+exercises.c:13:7: note: previous definition of ‘crea_lista’ with type ‘List *()’
+   13 | List* crea_lista() {
+      |       ^~~~~~~~~~
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:80:12: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   80 |         *L = (*L)[1];
+      |            ^
+exercises.c:85:48: error: comparison between pointer and integer [-Werror]
+   85 |     while (currentPtr != NULL && currentPtr[1] != NULL) {
+      |                                                ^~
+exercises.c:87:25: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   87 |             int* temp = currentPtr[1];
+      |                         ^~~~~~~~~~
+exercises.c:91:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   91 |             currentPtr = currentPtr[1];
+      |                        ^
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:22: error: passing argument 1 of ‘eliminaElementos’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  132 |     eliminaElementos(L, elem);
+      |                      ^
+      |                      |
+      |                      List * {aka struct List *}
+In file included from test.c:5:
+exercises.c:77:29: note: expected ‘int **’ but argument is of type ‘List *’ {aka ‘struct List *’}
+   77 | void eliminaElementos(int** L, int elem) {
+      |                       ~~~~~~^
+cc1: all warnings being treated as errors
+Compilation failed
+2f2b924
