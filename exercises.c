@@ -86,7 +86,7 @@ void eliminaElementos(int** L, int elem) {
     while (currentPtr != NULL && currentPtr[1] != NULL) {
         if (currentPtr[1] == elem) {
             int* temp = currentPtr[1];
-            currentPtr[1] = currentPtr[1][1];
+            currentPtr[1] = temp[1];
             free(temp);
         } else {
             currentPtr = currentPtr[1];
