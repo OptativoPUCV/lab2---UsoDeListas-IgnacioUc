@@ -62,7 +62,7 @@ int sumaLista(List *L) {
   
     actual = next(L);
   
-    }
+    };
   return suma;
 }
 
