@@ -1323,3 +1323,13 @@ test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; di
 cc1: all warnings being treated as errors
 Compilation failed
 d4e6067
+Fri 22 Mar 2024 03:33:58 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c:6:10: fatal error: arraylist.h: No such file or directory
+    6 | #include <arraylist.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+Compilation failed
+96b1147
