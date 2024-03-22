@@ -159,3 +159,25 @@ exercises.c:76:13: error: implicit declaration of function ‘delete_current’ 
 cc1: all warnings being treated as errors
 Compilation failed
 1d7f4da
+Fri 22 Mar 2024 01:11:30 AM UTC: 
+ exercises.c | 30 ++++++++++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:73:29: error: invalid use of undefined type ‘struct List’
+   73 |     struct Node* current = L->first; // Comienza desde el primer nodo
+      |                             ^~
+exercises.c:84:18: error: invalid use of undefined type ‘struct List’
+   84 |                 L->first = current->next;
+      |                  ^~
+exercises.c:91:29: error: invalid use of undefined type ‘struct List’
+   91 |             if (current == L->last) {
+      |                             ^~
+exercises.c:92:18: error: invalid use of undefined type ‘struct List’
+   92 |                 L->last = prev;
+      |                  ^~
+exercises.c:96:14: error: invalid use of undefined type ‘struct List’
+   96 |             L->size--; // Reduce el tamaño de la lista
+      |              ^~
+Compilation failed
+7470094

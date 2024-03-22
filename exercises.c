@@ -64,16 +64,38 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(List* L, int elem) {
-    Node* current = L->first; // Comienza desde el primer nodo
+void eliminaElementos(struct List* L, int elem) {
+    struct Node {
+        void* data;
+        struct Node* next;
+    };
+
+    struct Node* current = L->first; // Comienza desde el primer nodo
+    struct Node* prev = NULL; // Para almacenar el nodo anterior
 
     while (current != NULL) {
-        Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
+        struct Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
 
         // Verifica si el elemento actual es igual a 'elem'
         if (*((int*)current->data) == elem) {
             // Elimina el nodo actual de la lista
-            delete_current(L);
+            if (prev == NULL) {
+                // Si el nodo a eliminar es el primero
+                L->first = current->next;
+            } else {
+                // Si el nodo a eliminar no es el primero
+                prev->next = current->next;
+            }
+
+            // Si el nodo a eliminar es el último
+            if (current == L->last) {
+                L->last = prev;
+            }
+
+            free(current); // Libera la memoria del nodo
+            L->size--; // Reduce el tamaño de la lista
+        } else {
+            prev = current; // Actualiza el nodo anterior solo si no se elimina el actual
         }
 
         current = nextNode; // Avanza al siguiente nodo
