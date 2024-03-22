@@ -64,36 +64,33 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(struct List* L, int elem) {
-    struct Node {
-        void* data;
-        struct Node* next;
-    };
-
-    struct Node* current = L->first; // Comienza desde el primer nodo
-    struct Node* prev = NULL; // Para almacenar el nodo anterior
+void eliminaElementos(void* L, int elem) {
+    void* current = ((void**)L)[0]; // Comienza desde el primer nodo
+    void* prev = NULL; // Para almacenar el nodo anterior
 
     while (current != NULL) {
-        struct Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
+        void* nextNode = ((void**)current)[1]; // Guarda el siguiente nodo antes de eliminar el actual
 
         // Verifica si el elemento actual es igual a 'elem'
-        if (*((int*)current->data) == elem) {
+        if (*((int*)((void**)current)[0]) == elem) {
             // Elimina el nodo actual de la lista
             if (prev == NULL) {
                 // Si el nodo a eliminar es el primero
-                L->first = current->next;
+                ((void**)L)[0] = ((void**)current)[1];
             } else {
                 // Si el nodo a eliminar no es el primero
-                prev->next = current->next;
+                ((void**)prev)[1] = ((void**)current)[1];
             }
 
             // Si el nodo a eliminar es el último
-            if (current == L->last) {
-                L->last = prev;
+            if (((void**)current)[1] == NULL) {
+                ((void**)L)[1] = prev;
             }
 
-            free(current); // Libera la memoria del nodo
-            L->size--; // Reduce el tamaño de la lista
+            free(((void**)current)[0]); // Libera la memoria del nodo
+            free(current); // Libera la memoria del nodo (previo)
+            free(prev); // Libera la memoria del nodo (actual)
+            ((int*)L)[2]--; // Reduce el tamaño de la lista
         } else {
             prev = current; // Actualiza el nodo anterior solo si no se elimina el actual
         }

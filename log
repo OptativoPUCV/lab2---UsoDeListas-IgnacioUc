@@ -181,3 +181,8 @@ exercises.c:96:14: error: invalid use of undefined type ‘struct List’
       |              ^~
 Compilation failed
 7470094
+Fri 22 Mar 2024 01:12:34 AM UTC: 
+ exercises.c | 29 +++++++++++++----------------
+ 1 file changed, 13 insertions(+), 16 deletions(-)
+ tests:  0|0
+536b9b8
