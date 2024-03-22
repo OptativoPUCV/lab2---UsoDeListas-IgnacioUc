@@ -970,3 +970,38 @@ exercises.c:78:29: note: expected ‘int **’ but argument is of type ‘List *
 cc1: all warnings being treated as errors
 Compilation failed
 b51ca82
+Fri 22 Mar 2024 03:22:25 AM UTC: 
+ exercises.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:79:26: error: invalid use of incomplete typedef ‘List’
+   79 |     while (L != NULL && L->head != NULL && *(L->head) == elem) {
+      |                          ^~
+exercises.c:79:47: error: invalid use of incomplete typedef ‘List’
+   79 |     while (L != NULL && L->head != NULL && *(L->head) == elem) {
+      |                                               ^~
+exercises.c:80:22: error: invalid use of incomplete typedef ‘List’
+   80 |         int* temp = L->head;
+      |                      ^~
+exercises.c:81:10: error: invalid use of incomplete typedef ‘List’
+   81 |         L->head = L->head[1];
+      |          ^~
+exercises.c:81:20: error: invalid use of incomplete typedef ‘List’
+   81 |         L->head = L->head[1];
+      |                    ^~
+exercises.c:85:24: error: invalid use of incomplete typedef ‘List’
+   85 |     int* currentPtr = L->head;
+      |                        ^~
+exercises.c:86:48: error: comparison between pointer and integer [-Werror]
+   86 |     while (currentPtr != NULL && currentPtr[1] != NULL) {
+      |                                                ^~
+exercises.c:88:25: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   88 |             int* temp = currentPtr[1];
+      |                         ^~~~~~~~~~
+exercises.c:92:24: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   92 |             currentPtr = currentPtr[1];
+      |                        ^
+cc1: all warnings being treated as errors
+Compilation failed
+040be63

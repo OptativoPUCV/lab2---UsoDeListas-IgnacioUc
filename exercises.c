@@ -75,16 +75,14 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(int** L, int elem) {
-    // Eliminar los elementos iguales a elem al inicio de la lista
-    while (*L != NULL && **L == elem) {
-        int* temp = *L;
-        *L = (*L)[1];
+void eliminaElementos(List *L, int elem) {
+    while (L != NULL && L->head != NULL && *(L->head) == elem) {
+        int* temp = L->head;
+        L->head = L->head[1];
         free(temp);
     }
 
-    // Recorrer el resto de la lista para eliminar los elementos iguales a elem
-    int* currentPtr = *L;
+    int* currentPtr = L->head;
     while (currentPtr != NULL && currentPtr[1] != NULL) {
         if (currentPtr[1] == elem) {
             int* temp = currentPtr[1];
@@ -95,6 +93,7 @@ void eliminaElementos(int** L, int elem) {
         }
     }
 }
+
 
 /*
 Ejercicio 4.
