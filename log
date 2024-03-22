@@ -133,3 +133,29 @@ exercises.c:61:26: error: request for member ‘next’ in something not a struc
       |                          ^~
 Compilation failed
 9fbfcb2
+Fri 22 Mar 2024 01:09:35 AM UTC: 
+ exercises.c | 23 +++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:68:5: error: unknown type name ‘Node’
+   68 |     Node* current = L->first; // Comienza desde el primer nodo
+      |     ^~~~
+exercises.c:68:22: error: invalid use of incomplete typedef ‘List’
+   68 |     Node* current = L->first; // Comienza desde el primer nodo
+      |                      ^~
+exercises.c:71:9: error: unknown type name ‘Node’
+   71 |         Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
+      |         ^~~~
+exercises.c:71:33: error: request for member ‘next’ in something not a structure or union
+   71 |         Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
+      |                                 ^~
+exercises.c:74:28: error: request for member ‘data’ in something not a structure or union
+   74 |         if (*((int*)current->data) == elem) {
+      |                            ^~
+exercises.c:76:13: error: implicit declaration of function ‘delete_current’ [-Werror=implicit-function-declaration]
+   76 |             delete_current(L);
+      |             ^~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1d7f4da

@@ -52,16 +52,7 @@ Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
-    int suma = 0; // Inicializa la variable suma
-
-    // Itera sobre la lista y suma todos los elementos
-    Node *current = L->first; // Obtén el primer nodo de la lista
-    while (current != NULL) {
-        suma += *((int*)current->data); // Suma el valor del elemento actual
-        current = current->next; // Avanza al siguiente nodo
-    }
-
-    return suma; // Retorna la suma de los elementos
+   return 0;
 }
 
 /*
@@ -73,8 +64,20 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(List*L, int elem){
+void eliminaElementos(List* L, int elem) {
+    Node* current = L->first; // Comienza desde el primer nodo
 
+    while (current != NULL) {
+        Node* nextNode = current->next; // Guarda el siguiente nodo antes de eliminar el actual
+
+        // Verifica si el elemento actual es igual a 'elem'
+        if (*((int*)current->data) == elem) {
+            // Elimina el nodo actual de la lista
+            delete_current(L);
+        }
+
+        current = nextNode; // Avanza al siguiente nodo
+    }
 }
 
 /*
