@@ -46,12 +46,12 @@ List* crea_lista() {
 
     // Agregar punteros a elementos del 1 al 10
     for (int i = 1; i <= 10; i++) {
-      int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
+      int elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
       *elemento = i; // Asignar el valor al elemento
       pushBack(lista, elemento); // Agregar el puntero al elemento a la lista
     }
 
-    return *lista;
+    return lista;
   }
 /*
 Ejercicio 2.
