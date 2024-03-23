@@ -81,12 +81,14 @@ posiciona en el elemento anterior.
 void eliminaElementos(List L, int elem) {
     int *dato; // Declaras dato como un puntero a entero
     dato = (int*)first(L); // Obtienes el primer elemento de la lista
-    while (dato != NULL) { // Mientras no llegues al final de la lista
-        if (*dato == elem) {
+    while(dato != NULL) { // Mientras no llegues al final de la lista
+        if(*dato == elem) {
+            // Guarda el puntero al siguiente elemento antes de eliminar el actual
+            int *siguiente = (int*)next(L);
             popCurrent(L); // Eliminas el elemento actual
-            dato = (int*)first(L); // Revisas desde el principio nuevamente
+            dato = siguiente; // Actualiza dato al siguiente elemento
         } else {
-            dato = (int*)next(L); // Avanzas al siguiente elemento
+            dato = (int*)next(L); // Avanzas al siguiente solo si no eliminaste el elemento actual
         }
     }
 }
