@@ -152,3 +152,9 @@ int parentesisBalanceados(char *cadena) {
           }
       }
   }
+
+  int result = isEmpty(stack) ? 1 : 0;
+  free(stack->array);
+  free(stack);
+  return result;
+  }
