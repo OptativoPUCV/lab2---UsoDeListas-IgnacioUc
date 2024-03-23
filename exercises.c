@@ -130,31 +130,25 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-    int len = strlen(str);
-    Stack* stack = create_stack(len);
+  int balance = 0;
 
-    for (int i = 0; i < len; i++) {
-        if (str[i] == '(' || str[i] == '[' || str[i] == '{')
-            push(stack, str[i]);
-        else if (str[i] == ')' || str[i] == ']' || str[i] == '}') {
-            if (is_empty(stack)) {
-                free(stack->array);
-                free(stack);
-                return 0; // Los paréntesis no están balanceados
-            }
-            char top = pop(stack);
-            if ((str[i] == ')' && top != '(') ||
-                (str[i] == ']' && top != '[') ||
-                (str[i] == '}' && top != '{')) {
-                free(stack->array);
-                free(stack);
-                return 0; // Los paréntesis no están balanceados
-            }
-        }
-    }
+      // Iteramos sobre la cadena
+      while (*cadena != '\0') {
+          if (*cadena == '(') {
+              balance++;
+          } else if (*cadena == ')') {
+              balance--;
+          }
 
-    int result = is_empty(stack) ? 1 : 0;
-    free(stack->array);
-    free(stack);
-    return result;
+          // Si el balance es negativo en algún punto, los paréntesis no están balanceados
+          if (balance < 0) {
+              return 0;
+          }
+
+          cadena++; // Avanzamos al siguiente carácter
+      }
+
+      // Los paréntesis están balanceados si el balance final es 0
+      return balance == 0 ? 1 : 0;
+  }
   }
