@@ -9635,3 +9635,46 @@ exercises.c:124:1: error: expected identifier or ‘(’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 827998f
+Sat 23 Mar 2024 06:15:06 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c:80:28: error: parameter 1 (‘L’) has incomplete type
+   80 | void eliminaElementos(List L, int elem) {
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:83:16: error: comparison between pointer and integer [-Werror]
+   83 |     while(dato != NULL) { // Mientras no llegues al final de la lista
+      |                ^~
+exercises.c: In function ‘copia_pila’:
+exercises.c:103:20: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  103 |     for (int i = P1->size - 1; i >= 0; i--) {
+      |                    ^~
+exercises.c:104:26: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  104 |       void* elemento = P1->data[i];
+      |                          ^~
+exercises.c:106:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  106 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:111:26: error: invalid use of incomplete typedef ‘List’
+  111 |     for (int i = auxiliar->size - 1; i >= 0; i--) {
+      |                          ^~
+exercises.c:112:32: error: invalid use of incomplete typedef ‘List’
+  112 |       void* elemento = auxiliar->data[i];
+      |                                ^~
+exercises.c:114:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  114 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:119:33: error: invalid use of incomplete typedef ‘List’
+  119 |     for (int i = 0; i < auxiliar->size; i++) {
+      |                                 ^~
+exercises.c:120:20: error: invalid use of incomplete typedef ‘List’
+  120 |       free(auxiliar->data[i]);
+      |                    ^~
+exercises.c: At top level:
+exercises.c:124:1: error: expected identifier or ‘(’ before ‘}’ token
+  124 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+9cb2c51
