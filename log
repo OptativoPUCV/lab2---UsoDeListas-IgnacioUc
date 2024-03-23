@@ -11011,3 +11011,42 @@ exercises.c:121:20: error: invalid use of incomplete typedef ‘List’
 cc1: all warnings being treated as errors
 Compilation failed
 105052c
+Sat 23 Mar 2024 10:57:29 PM UTC: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c:79:28: error: parameter 1 (‘L’) has incomplete type
+   79 | void eliminaElementos(List L, int elem) {
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:83:17: error: comparison between pointer and integer [-Werror]
+   83 |         if(dato != elem) {
+      |                 ^~
+exercises.c: In function ‘copia_pila’:
+exercises.c:104:20: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  104 |     for (int i = P1->size - 1; i >= 0; i--) {
+      |                    ^~
+exercises.c:105:26: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  105 |       void* elemento = P1->data[i];
+      |                          ^~
+exercises.c:107:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  107 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:112:26: error: invalid use of incomplete typedef ‘List’
+  112 |     for (int i = auxiliar->size - 1; i >= 0; i--) {
+      |                          ^~
+exercises.c:113:32: error: invalid use of incomplete typedef ‘List’
+  113 |       void* elemento = auxiliar->data[i];
+      |                                ^~
+exercises.c:115:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  115 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:120:33: error: invalid use of incomplete typedef ‘List’
+  120 |     for (int i = 0; i < auxiliar->size; i++) {
+      |                                 ^~
+exercises.c:121:20: error: invalid use of incomplete typedef ‘List’
+  121 |       free(auxiliar->data[i]);
+      |                    ^~
+cc1: all warnings being treated as errors
+Compilation failed
+0e7a66e

@@ -82,9 +82,9 @@ void eliminaElementos(List L, int elem) {
     while(dato != NULL) { // Mientras no llegues al final de la lista
         if(dato != elem) {
           free(dato);
-          free(elem);
-            popCurrent(L); 
           
+            popCurrent(L); 
+          free(L);
         } else {
             dato = (int*)next(L); 
         }
