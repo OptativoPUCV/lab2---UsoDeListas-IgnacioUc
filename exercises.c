@@ -131,23 +131,31 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 
 int parentesisBalanceados(char *cadena) {
   int balance = 0;
+  char *pila = malloc(strlen(cadena)); // Usaremos una pila para mantener el orden de apertura y cierre de los paréntesis
 
-      // Iteramos sobre la cadena
-      while (*cadena != '\0') {
-          if (*cadena == '(') {
-              balance++;
-          } else if (*cadena == ')') {
+  while (*cadena != '\0') {
+      // Si encontramos un paréntesis de apertura, lo agregamos a la pila
+      if (*cadena == '(' || *cadena == '[' || *cadena == '{') {
+          pila[balance] = *cadena;
+          balance++;
+      } else if (*cadena == ')' || *cadena == ']' || *cadena == '}') {
+          // Si encontramos un paréntesis de cierre, verificamos si coincide con el último paréntesis de apertura en la pila
+          if (balance == 0) {
+              free(pila);
+              return 0; // No hay paréntesis de apertura correspondiente
+          }
+          char ultimo = pila[balance - 1];
+          if ((*cadena == ')' && ultimo == '(') || (*cadena == ']' && ultimo == '[') || (*cadena == '}' && ultimo == '{')) {
               balance--;
+          } else {
+              free(pila);
+              return 0; // Los paréntesis no coinciden
           }
-
-          // Si el balance es negativo en algún punto, los paréntesis no están balanceados
-          if (balance < 0) {
-              return 0;
-          }
-
-          cadena++; // Avanzamos al siguiente carácter
       }
+      cadena++; // Avanzamos al siguiente carácter
+  }
 
-      // Los paréntesis están balanceados si el balance final es 0
-      return balance == 0 ? 1 : 0;
+  free(pila);
+  // Los paréntesis están balanceados si la pila está vacía al final
+  return balance == 0 ? 1 : 0;
   }
