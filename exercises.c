@@ -51,7 +51,7 @@ List* crea_lista() {
       pushBack(lista, elemento); // Agregar el puntero al elemento a la lista
     }
 
-    return lista;
+    return *lista;
   }
 /*
 Ejercicio 2.
