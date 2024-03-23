@@ -151,4 +151,3 @@ int parentesisBalanceados(char *cadena) {
       // Los paréntesis están balanceados si el balance final es 0
       return balance == 0 ? 1 : 0;
   }
-  }
