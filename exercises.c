@@ -96,7 +96,7 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-  stack* auxiliar = create_list();
+  stack* auxiliar = create_stack();
 
     for (int i = P1->size - 1; i >= 0; i--) {
       void* elemento = P1->data[i];
