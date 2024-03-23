@@ -83,7 +83,7 @@ void eliminaElementos(List L, int elem) {
         if(dato != elem) {
           free(dato);
             popCurrent(L); 
-          free(dato);
+          free(elem);
         } else {
             dato = (int*)next(L); 
         }
