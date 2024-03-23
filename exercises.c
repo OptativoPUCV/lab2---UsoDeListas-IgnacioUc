@@ -98,26 +98,27 @@ El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
 
-void ejercicio4(List* P1, List* P2) {
+void copia_pila(Stack* P1, Stack* P2) {
   // Crear una lista auxiliar para mantener temporalmente los elementos de P1
-  List* auxiliar = create_list();
+    List* auxiliar = create_list();
 
-  // Copiar los elementos de P1 en la lista auxiliar en orden inverso
-  void* elemento = popBack(P1);
-  while (elemento != NULL) {
-    pushFront(auxiliar, elemento);
-    elemento = popBack(P1);
-  }
+    // Copiar los elementos de P1 en la lista auxiliar en orden inverso
+    void* elemento = popBack(P1);
+    while (elemento != NULL) {
+      pushFront(auxiliar, elemento);
+      elemento = popBack(P1);
+    }
 
-  // Copiar los elementos de la lista auxiliar a P2
-  elemento = popFront(auxiliar);
-  while (elemento != NULL) {
-    pushBack(P2, elemento);
+    // Copiar los elementos de la lista auxiliar a P2
     elemento = popFront(auxiliar);
-  }
+    while (elemento != NULL) {
+      pushBack(P2, elemento);
+      elemento = popFront(auxiliar);
+    }
 
-  // Liberar memoria de la lista auxiliar
-  free(auxiliar);
+    // Liberar memoria de la lista auxiliar
+    free(auxiliar);
+  }
 }
 
 /*
