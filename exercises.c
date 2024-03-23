@@ -133,7 +133,7 @@ int parentesisBalanceados(char *cadena) {
   int balance = 0;
   char *pila = malloc(strlen(cadena)); // Usaremos una pila para mantener el orden de apertura y cierre de los paréntesis
 
-  while (*cadena != '\0') {
+  while (*cadena != NULL) {
       // Si encontramos un paréntesis de apertura, lo agregamos a la pila
       if (*cadena == '(' || *cadena == '[' || *cadena == '{') {
           pila[balance] = *cadena;
