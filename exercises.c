@@ -43,7 +43,6 @@ Al finalizar retorna la lista creada.
 
 List* crea_lista() {
    List* L = create_list();
-   return L;
   for (int i = 1; i <= 10; i++){
     int* element = (int*)malloc(sizeof(int));
     *element = i;
@@ -86,7 +85,7 @@ void eliminaElementos(List L, int elem) {
             popCurrent(L); // Eliminas el elemento actual
             // No avanzas al siguiente inmediatamente porque popCurrent te deja en el elemento anterior
         } else {
-            dato = (int)next(L); 
+            dato = (int*)next(L); 
         }
     }
 }
