@@ -47,7 +47,7 @@ List* crea_lista() {
   for (int i = 1; i <= 10; i++){
     int* element = (int*)malloc(sizeof(int));
     *element = i;
-    
+    pushBack(L, element);
   }
   return L;
 }
@@ -78,21 +78,18 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(List*L, int elem){
-
-  int* dato;
-
-  dato = (int*)first(L);
-  while(dato != NULL) {
-    if(*dato == elem){
-     dato =  (int*)popCurrent(L);
-    } 
-    else {
-      dato = (int*)next(L);
+void eliminaElementos(List L, int elem) {
+    intdato;
+    dato = (int)first(L); // Obtienes el primer elemento de la lista
+    while(dato != NULL) { // Mientras no llegues al final de la lista
+        if(dato == elem) {
+            popCurrent(L); // Eliminas el elemento actual
+            // No avanzas al siguiente inmediatamente porque popCurrent te deja en el elemento anterior
+        } else {
+            dato = (int*)next(L); // Avanzas al siguiente solo si no eliminaste el elemento actual
+        }
     }
-  }
 }
-
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.
@@ -112,7 +109,12 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 
 int parentesisBalanceados(char *cadena) {
     int balance = 0;
-
+    char c ;
+    stack = create_stack();
+    for (int i = 0; i < strlen(cadena); i++){
+      c
+    }
+/*
     while (*cadena != '\0') {
         if (*cadena == '(') {
             balance++;
@@ -129,3 +131,4 @@ int parentesisBalanceados(char *cadena) {
 
     return (balance == 0) ? 1 : 0;
 }
+*/
