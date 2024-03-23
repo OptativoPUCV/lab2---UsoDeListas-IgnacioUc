@@ -84,7 +84,7 @@ void eliminaElementos(List L, int elem) {
         if(dato == elem) {
             popCurrent(L); 
         } else {
-            dato = (int*)next(L); 
+            elem = (int*)next(L); 
         }
     }
 }
