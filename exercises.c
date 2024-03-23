@@ -130,21 +130,23 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-  int longitud = strlen(cadena);
-    int contador = 0;
+  int len = strlen(str);
+      Stack* stack = createStack(len);
 
-    for (int i = 0; i < longitud; i++) {
-      if (cadena[i] == '(') {
-        contador++;
-      } else if (cadena[i] == ')') {
-        contador--;
-        // Si hay más paréntesis de cierre que de apertura, la cadena no está balanceada
-        if (contador < 0) {
-          return 0;
-        }
+      for (int i = 0; i < len; i++) {
+          if (str[i] == '(')
+              push(stack, str[i]);
+          else if (str[i] == ')') {
+              if (isEmpty(stack) || pop(stack) != '(') {
+                  free(stack->array);
+                  free(stack);
+                  return 0; // Los paréntesis no están balanceados
+              }
+          }
       }
-    }
 
-    // Si contador es igual a 0 al final del recorrido, los paréntesis están balanceados
-    return (contador == 0) ? 1 : 0;
+      int result = isEmpty(stack) ? 1 : 0;
+      free(stack->array);
+      free(stack);
+      return result;
   }

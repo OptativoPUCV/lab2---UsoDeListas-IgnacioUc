@@ -9893,3 +9893,68 @@ exercises.c:123:1: error: expected identifier or ‘(’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 4ff3a8c
+Sat 23 Mar 2024 02:10:25 PM UTC: 
+ exercises.c | 26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
+In file included from test.c:5:
+exercises.c:79:28: error: parameter 1 (‘L’) has incomplete type
+   79 | void eliminaElementos(List L, int elem) {
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:82:16: error: comparison between pointer and integer [-Werror]
+   82 |     while(dato != NULL) { // Mientras no llegues al final de la lista
+      |                ^~
+exercises.c: In function ‘copia_pila’:
+exercises.c:102:20: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  102 |     for (int i = P1->size - 1; i >= 0; i--) {
+      |                    ^~
+exercises.c:103:26: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  103 |       void* elemento = P1->data[i];
+      |                          ^~
+exercises.c:105:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  105 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:110:26: error: invalid use of incomplete typedef ‘List’
+  110 |     for (int i = auxiliar->size - 1; i >= 0; i--) {
+      |                          ^~
+exercises.c:111:32: error: invalid use of incomplete typedef ‘List’
+  111 |       void* elemento = auxiliar->data[i];
+      |                                ^~
+exercises.c:113:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  113 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:118:33: error: invalid use of incomplete typedef ‘List’
+  118 |     for (int i = 0; i < auxiliar->size; i++) {
+      |                                 ^~
+exercises.c:119:20: error: invalid use of incomplete typedef ‘List’
+  119 |       free(auxiliar->data[i]);
+      |                    ^~
+exercises.c: At top level:
+exercises.c:123:1: error: expected identifier or ‘(’ before ‘}’ token
+  123 | }
+      | ^
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:133:20: error: ‘str’ undeclared (first use in this function)
+  133 |   int len = strlen(str);
+      |                    ^~~
+exercises.c:133:20: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:134:22: error: implicit declaration of function ‘createStack’; did you mean ‘create_stack’? [-Werror=implicit-function-declaration]
+  134 |       Stack* stack = createStack(len);
+      |                      ^~~~~~~~~~~
+      |                      create_stack
+exercises.c:134:22: error: initialization of ‘Stack *’ {aka ‘List *’} from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+exercises.c:140:19: error: implicit declaration of function ‘isEmpty’ [-Werror=implicit-function-declaration]
+  140 |               if (isEmpty(stack) || pop(stack) != '(') {
+      |                   ^~~~~~~
+exercises.c:140:48: error: comparison between pointer and integer [-Werror]
+  140 |               if (isEmpty(stack) || pop(stack) != '(') {
+      |                                                ^~
+exercises.c:141:29: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  141 |                   free(stack->array);
+      |                             ^~
+exercises.c:149:17: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  149 |       free(stack->array);
+      |                 ^~
+cc1: all warnings being treated as errors
+Compilation failed
+5802ab3
