@@ -46,6 +46,7 @@ List* crea_lista() {
     for (int i = 1; i <= 10; i++) {
       int* elemento = (int*)malloc(sizeof(int)); 
       *elemento = i; 
+      printf("%d\n", *elemento);")
       pushBack(lista, elemento); 
     }
     return lista;
