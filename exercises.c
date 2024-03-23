@@ -99,27 +99,30 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-  // Crear una lista auxiliar para mantener temporalmente los elementos de P1
-    List* auxiliar = create_list();
+   List* auxiliar = create_list();
 
     // Copiar los elementos de P1 en la lista auxiliar en orden inverso
-    void* elemento = popBack(P1);
-    while (elemento != NULL) {
-      pushFront(auxiliar, elemento);
-      elemento = popBack(P1);
+    for (int i = P1->size - 1; i >= 0; i--) {
+      void* elemento = P1->data[i];
+      void* copia_elemento = malloc(sizeof(elemento));
+      memcpy(copia_elemento, elemento, sizeof(elemento));
+      pushBack(auxiliar, copia_elemento);
     }
 
-    // Copiar los elementos de la lista auxiliar a P2
-    elemento = popFront(auxiliar);
-    while (elemento != NULL) {
-      pushBack(P2, elemento);
-      elemento = popFront(auxiliar);
+    // Copiar los elementos de la lista auxiliar a P2 en orden inverso
+    for (int i = auxiliar->size - 1; i >= 0; i--) {
+      void* elemento = auxiliar->data[i];
+      void* copia_elemento = malloc(sizeof(elemento));
+      memcpy(copia_elemento, elemento, sizeof(elemento));
+      pushBack(P2, copia_elemento);
     }
 
-    // Liberar memoria de la lista auxiliar
+    // Liberar la memoria de la lista auxiliar
+    for (int i = 0; i < auxiliar->size; i++) {
+      free(auxiliar->data[i]);
+    }
     free(auxiliar);
   }
-}
 
 /*
 Ejercicio 5.
