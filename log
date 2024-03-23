@@ -10300,3 +10300,81 @@ exercises.c:157:13: error: invalid use of incomplete typedef ‘Stack’ {aka �
 cc1: all warnings being treated as errors
 Compilation failed
 d124fd1
+Sat 23 Mar 2024 02:24:37 PM UTC: 
+ exercises.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c:79:28: error: parameter 1 (‘L’) has incomplete type
+   79 | void eliminaElementos(List L, int elem) {
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:82:16: error: comparison between pointer and integer [-Werror]
+   82 |     while(dato != NULL) { // Mientras no llegues al final de la lista
+      |                ^~
+exercises.c: In function ‘copia_pila’:
+exercises.c:102:20: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  102 |     for (int i = P1->size - 1; i >= 0; i--) {
+      |                    ^~
+exercises.c:103:26: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  103 |       void* elemento = P1->data[i];
+      |                          ^~
+exercises.c:105:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  105 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:110:26: error: invalid use of incomplete typedef ‘List’
+  110 |     for (int i = auxiliar->size - 1; i >= 0; i--) {
+      |                          ^~
+exercises.c:111:32: error: invalid use of incomplete typedef ‘List’
+  111 |       void* elemento = auxiliar->data[i];
+      |                                ^~
+exercises.c:113:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  113 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:118:33: error: invalid use of incomplete typedef ‘List’
+  118 |     for (int i = 0; i < auxiliar->size; i++) {
+      |                                 ^~
+exercises.c:119:20: error: invalid use of incomplete typedef ‘List’
+  119 |       free(auxiliar->data[i]);
+      |                    ^~
+exercises.c: At top level:
+exercises.c:123:1: error: expected identifier or ‘(’ before ‘}’ token
+  123 | }
+      | ^
+exercises.c: In function ‘balanced_parentheses’:
+exercises.c:139:32: error: passing argument 2 of ‘push’ makes pointer from integer without a cast [-Werror=int-conversion]
+  139 |                 push(stack, str[i]);
+      |                             ~~~^~~
+      |                                |
+      |                                char
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:31: note: expected ‘void *’ but argument is of type ‘char’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |                         ~~~~~~^~~~
+In file included from test.c:5:
+exercises.c:141:21: error: implicit declaration of function ‘is_empty’ [-Werror=implicit-function-declaration]
+  141 |                 if (is_empty(stack)) {
+      |                     ^~~~~~~~
+exercises.c:142:31: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  142 |                     free(stack->array);
+      |                               ^~
+exercises.c:146:28: error: initialization of ‘char’ from ‘void *’ makes integer from pointer without a cast [-Werror=int-conversion]
+  146 |                 char top = pop(stack);
+      |                            ^~~
+exercises.c:150:31: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  150 |                     free(stack->array);
+      |                               ^~
+exercises.c:158:19: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  158 |         free(stack->array);
+      |                   ^~
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:162:3: error: control reaches end of non-void function [-Werror=return-type]
+  162 |   }
+      |   ^
+At top level:
+exercises.c:133:9: error: ‘balanced_parentheses’ defined but not used [-Werror=unused-function]
+  133 |     int balanced_parentheses(char* str) {
+      |         ^~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4829a16

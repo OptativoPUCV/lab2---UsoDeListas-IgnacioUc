@@ -130,31 +130,33 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-  int len = strlen(str);
-  Stack* stack = createStack(len);
+    int balanced_parentheses(char* str) {
+        int len = strlen(str);
+        Stack* stack = create_stack(len);
 
-  for (int i = 0; i < len; i++) {
-      if (str[i] == '(' || str[i] == '[' || str[i] == '{')
-          push(stack, str[i]);
-      else if (str[i] == ')' || str[i] == ']' || str[i] == '}') {
-          if (isEmpty(stack)) {
-              free(stack->array);
-              free(stack);
-              return 0; // Los paréntesis no están balanceados
-          }
-          char top = pop(stack);
-          if ((str[i] == ')' && top != '(') ||
-              (str[i] == ']' && top != '[') ||
-              (str[i] == '}' && top != '{')) {
-              free(stack->array);
-              free(stack);
-              return 0; // Los paréntesis no están balanceados
-          }
-      }
-  }
+        for (int i = 0; i < len; i++) {
+            if (str[i] == '(' || str[i] == '[' || str[i] == '{')
+                push(stack, str[i]);
+            else if (str[i] == ')' || str[i] == ']' || str[i] == '}') {
+                if (is_empty(stack)) {
+                    free(stack->array);
+                    free(stack);
+                    return 0; // Los paréntesis no están balanceados
+                }
+                char top = pop(stack);
+                if ((str[i] == ')' && top != '(') ||
+                    (str[i] == ']' && top != '[') ||
+                    (str[i] == '}' && top != '{')) {
+                    free(stack->array);
+                    free(stack);
+                    return 0; // Los paréntesis no están balanceados
+                }
+            }
+        }
 
-  int result = isEmpty(stack) ? 1 : 0;
-  free(stack->array);
-  free(stack);
-  return result;
+        int result = is_empty(stack) ? 1 : 0;
+        free(stack->array);
+        free(stack);
+        return result;
+    }
   }
