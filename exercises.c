@@ -120,7 +120,7 @@ void copia_pila(Stack* P1, Stack* P2) {
     }
     free(auxiliar);
   }
-}
+
 
 /*
 Ejercicio 5.
