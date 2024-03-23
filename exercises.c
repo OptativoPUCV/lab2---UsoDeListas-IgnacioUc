@@ -79,14 +79,14 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List L, int elem) {
-    intdato;
+    int dato;
     dato = (int)first(L); // Obtienes el primer elemento de la lista
     while(dato != NULL) { // Mientras no llegues al final de la lista
         if(dato == elem) {
             popCurrent(L); // Eliminas el elemento actual
             // No avanzas al siguiente inmediatamente porque popCurrent te deja en el elemento anterior
         } else {
-            dato = (int*)next(L); // Avanzas al siguiente solo si no eliminaste el elemento actual
+            dato = *(int*)next(L); // Avanzas al siguiente solo si no eliminaste el elemento actual
         }
     }
 }
