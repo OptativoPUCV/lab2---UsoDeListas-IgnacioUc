@@ -41,18 +41,18 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List* ejercicio1() {
+List* crea_lista() {
   List* lista = create_list();
 
-  // Agregar punteros a elementos del 1 al 10
-  for (int i = 1; i <= 10; i++) {
-    int* elemento = (int*)malloc(sizeof(int)); 
-    *elemento = i; 
-    pushBack(lista, elemento); 
-  }
+    // Agregar punteros a elementos del 1 al 10
+    for (int i = 1; i <= 10; i++) {
+      int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
+      *elemento = i; // Asignar el valor al elemento
+      pushBack(lista, elemento); // Agregar el puntero al elemento a la lista
+    }
 
-  return lista;
-}
+    return lista;
+  }
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
@@ -99,30 +99,7 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-   List* auxiliar = create_list();
-
-    // Copiar los elementos de P1 en la lista auxiliar en orden inverso
-    for (int i = P1->size - 1; i >= 0; i--) {
-      void* elemento = P1->data[i];
-      void* copia_elemento = malloc(sizeof(elemento));
-      memcpy(copia_elemento, elemento, sizeof(elemento));
-      pushBack(auxiliar, copia_elemento);
-    }
-
-    // Copiar los elementos de la lista auxiliar a P2 en orden inverso
-    for (int i = auxiliar->size - 1; i >= 0; i--) {
-      void* elemento = auxiliar->data[i];
-      void* copia_elemento = malloc(sizeof(elemento));
-      memcpy(copia_elemento, elemento, sizeof(elemento));
-      pushBack(P2, copia_elemento);
-    }
-
-    // Liberar la memoria de la lista auxiliar
-    for (int i = 0; i < auxiliar->size; i++) {
-      free(auxiliar->data[i]);
-    }
-    free(auxiliar);
-  }
+}
 
 /*
 Ejercicio 5.
