@@ -41,16 +41,18 @@ debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
 
-List* crea_lista() {
-   List* L = create_list();
-  for (int i = 1; i <= 10; i++){
-    int* element = *(int*)malloc(sizeof(int));
-    *element = i;
-    pushBack(L, element);
-  }
-  return L;
-}
+List* ejercicio1() {
+  List* lista = create_list();
 
+  // Agregar punteros a elementos del 1 al 10
+  for (int i = 1; i <= 10; i++) {
+    int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
+    *elemento = i; // Asignar el valor al elemento
+    pushBack(lista, elemento); // Agregar el puntero al elemento a la lista
+  }
+
+  return lista;
+}
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
