@@ -46,7 +46,6 @@ List* crea_lista() {
     for (int i = 1; i <= 10; i++) {
       int* elemento = (int*)malloc(sizeof(int)); 
       *elemento = i; 
-      printf("%d\n", *elemento);
       pushBack(lista, elemento); 
     }
     return lista;
@@ -83,6 +82,7 @@ void eliminaElementos(List L, int elem) {
     while(dato != NULL) { // Mientras no llegues al final de la lista
         if(dato == elem) {
             popCurrent(L); 
+          continue;
         } else {
             dato = (int*)next(L); 
         }
