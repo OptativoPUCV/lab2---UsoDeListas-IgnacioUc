@@ -79,20 +79,17 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List L, int elem) {
-    int *dato; // Declaras dato como un puntero a entero
-    dato = (int*)first(L); // Obtienes el primer elemento de la lista
+    int dato;
+    dato = (int)first(L); // Obtienes el primer elemento de la lista
     while(dato != NULL) { // Mientras no llegues al final de la lista
         if(*dato == elem) {
-            // Guarda el puntero al siguiente elemento antes de eliminar el actual
-            int *siguiente = (int*)next(L);
             popCurrent(L); // Eliminas el elemento actual
-            dato = siguiente; // Actualiza dato al siguiente elemento
+            // No avanzas al siguiente inmediatamente porque popCurrent te deja en el elemento anterior
         } else {
             dato = (int*)next(L); // Avanzas al siguiente solo si no eliminaste el elemento actual
         }
     }
 }
-
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.
