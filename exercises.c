@@ -46,7 +46,7 @@ List* crea_lista() {
 
     // Agregar punteros a elementos del 1 al 10
     for (int i = 1; i <= 10; i++) {
-      int* elemento = (int*)realloc(sizeof(int)); // Reservar memoria para el elemento
+      int* elemento = (int*)malloc(sizeof(int)); // Reservar memoria para el elemento
       *elemento = i; // Asignar el valor al elemento
       pushBack(lista, elemento); // Agregar el puntero al elemento a la lista
     }
@@ -133,27 +133,21 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-    int balance = 0;
-    char c ;
-    stack = create_stack();
-    for (int i = 0; i < strlen(cadena); i++){
-      c
-    }
-/*
-    while (*cadena != '\0') {
-        if (*cadena == '(') {
-            balance++;
-        } else if (*cadena == ')') {
-            balance--;
-        }
+  int longitud = strlen(cadena);
+    int contador = 0;
 
-        if (balance < 0) {
-            return 0; // Paréntesis desbalanceados
+    for (int i = 0; i < longitud; i++) {
+      if (cadena[i] == '(') {
+        contador++;
+      } else if (cadena[i] == ')') {
+        contador--;
+        // Si hay más paréntesis de cierre que de apertura, la cadena no está balanceada
+        if (contador < 0) {
+          return 0;
         }
-
-        cadena++;
+      }
     }
 
-    return (balance == 0) ? 1 : 0;
-}
-*/
+    // Si contador es igual a 0 al final del recorrido, los paréntesis están balanceados
+    return (contador == 0) ? 1 : 0;
+  }
