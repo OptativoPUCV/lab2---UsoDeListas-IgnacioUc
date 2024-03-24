@@ -12,7 +12,7 @@
 //NO MODIFICAR
 void imprime_lista(List* L) {
    int dato;
-   dato = (int*)first(L);
+   dato == (int*)first(L);
    printf("[");
    while(dato != NULL) {
       printf("%d ",dato);
