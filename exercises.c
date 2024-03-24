@@ -50,7 +50,6 @@ List* crea_lista() {
     pushBack(L, elementos);
   }
   return L;
-}
 
 
 /*
@@ -123,25 +122,24 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 
 int parentesisBalanceados(char *cadena) {
   int balance = 0;
-  char *pila = malloc(strlen(cadena)); // Usaremos una pila para mantener el orden de apertura y cierre de los paréntesis
+  char *pila = malloc(strlen(cadena)); 
 
   while (*cadena != '\0') {
-      // Si encontramos un paréntesis de apertura, lo agregamos a la pila
       if (*cadena == '(' || *cadena == '[' || *cadena == '{') {
           pila[balance] = *cadena;
           balance++;
       } else if (*cadena == ')' || *cadena == ']' || *cadena == '}') {
-          // Si encontramos un paréntesis de cierre, verificamos si coincide con el último paréntesis de apertura en la pila
+
           if (balance == 0) {
               free(pila);
-              return 0; // No hay paréntesis de apertura correspondiente
+              return 0;
           }
           char ultimo = pila[balance - 1];
           if ((*cadena == ')' && ultimo == '(') || (*cadena == ']' && ultimo == '[') || (*cadena == '}' && ultimo == '{')) {
               balance--;
           } else {
               free(pila);
-              return 0; // Los paréntesis no coinciden
+              return 0; 
           }
       }
       cadena++; // Avanzamos al siguiente carácter
