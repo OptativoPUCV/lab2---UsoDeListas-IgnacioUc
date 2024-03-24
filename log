@@ -12774,3 +12774,90 @@ test.c:175:5: error: implicit declaration of function ‘copia_pila’; did you 
 cc1: all warnings being treated as errors
 Compilation failed
 28c6570
+Sun 24 Mar 2024 01:05:50 AM UTC: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘imprime_lista’:
+exercises.c:14:4: error: ‘intdato’ undeclared (first use in this function)
+   14 |    intdato;
+      |    ^~~~~~~
+exercises.c:14:4: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:15:4: error: ‘dato’ undeclared (first use in this function)
+   15 |    dato = (int)first(L);
+      |    ^~~~
+exercises.c:15:11: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   15 |    dato = (int)first(L);
+      |           ^
+exercises.c:19:14: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   19 |       dato = (int)next(L);
+      |              ^
+exercises.c: At top level:
+exercises.c:27:27: error: unknown type name ‘StackP’; did you mean ‘Stack’?
+   27 | void imprime_y_vacia_pila(StackP*) {
+      |                           ^~~~~~
+      |                           Stack
+exercises.c:44:6: error: return type is an incomplete type
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘crea_lista’:
+exercises.c:48:14: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   48 |      element = i;
+      |              ^
+exercises.c:51:10: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   51 |   return L;
+      |          ^
+exercises.c:44:6: note: declared here
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘sumaLista’:
+exercises.c:59:5: error: type of ‘ListL’ defaults to ‘int’ [-Werror=implicit-int]
+   59 | int sumaLista(ListL) {
+      |     ^~~~~~~~~
+exercises.c:63:21: error: ‘L’ undeclared (first use in this function)
+   63 |   dato = (int)first(L);
+      |                     ^
+exercises.c:65:10: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   65 |     suma +=dato;
+      |          ^~
+exercises.c: At top level:
+exercises.c:81:28: error: parameter 1 (‘L’) has incomplete type
+   81 | void eliminaElementos(List L, int elem){
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:84:13: error: comparison between pointer and integer [-Werror]
+   84 |     if(dato == elem){
+      |             ^~
+exercises.c: At top level:
+exercises.c:93:1: error: expected identifier or ‘(’ before ‘/’ token
+   93 | /
+      | ^
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:121:5: error: type of ‘charcadena’ defaults to ‘int’ [-Werror=implicit-int]
+  121 | int parentesisBalanceados(charcadena) {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+exercises.c:125:30: error: ‘cadena’ undeclared (first use in this function); did you mean ‘charcadena’?
+  125 |   for (int i = 0; i < strlen(cadena); i++) {
+      |                              ^~~~~~
+      |                              charcadena
+exercises.c:128:19: error: invalid use of void expression
+  128 |       push(stack, (void)&c);
+      |                   ^~~~~~~~
+exercises.c:130:54: error: comparison between pointer and integer [-Werror]
+  130 |       if (get_size(stack) == 0 ||((char*)pop(stack)) != '(') {
+      |                                                      ^~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: void value not ignored as it ought to be
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+test.c: In function ‘test_copia_pila’:
+test.c:175:5: error: implicit declaration of function ‘copia_pila’; did you mean ‘test_copia_pila’? [-Werror=implicit-function-declaration]
+  175 |     copia_pila(P1, P2);
+      |     ^~~~~~~~~~
+      |     test_copia_pila
+test.c:201:5: error: implicit declaration of function ‘imprime_y_vacia_pila’ [-Werror=implicit-function-declaration]
+  201 |     imprime_y_vacia_pila(P1copy);
+      |     ^~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ad5663a

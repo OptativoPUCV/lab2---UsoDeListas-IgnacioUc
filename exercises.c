@@ -10,7 +10,7 @@
 
 //Funciones auxiliares que puedes utilizar para debuggear tus ejercicios
 //NO MODIFICAR
-void imprime_lista(List L) {
+void imprime_lista(List* L) {
    intdato;
    dato = (int)first(L);
    printf("[");
@@ -24,7 +24,7 @@ void imprime_lista(List L) {
 
 //Ojo que la pila se vacía al imprimir y se imprime en orden inverso
 //NO MODIFICAR
-void imprime_y_vacia_pila(StackP) {
+void imprime_y_vacia_pila(StackP*) {
    void dato;
    printf("[");
    while((dato = pop(P)) != NULL) {
