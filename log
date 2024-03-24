@@ -13164,3 +13164,71 @@ test.c:201:5: error: implicit declaration of function ‘imprime_y_vacia_pila’
 cc1: all warnings being treated as errors
 Compilation failed
 1656296
+Sun 24 Mar 2024 01:10:01 AM UTC: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘imprime_lista’:
+exercises.c:15:9: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   15 |    dato = (int*)first(L);
+      |         ^
+exercises.c:17:15: error: comparison between pointer and integer [-Werror]
+   17 |    while(dato != NULL) {
+      |               ^~
+exercises.c:19:12: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   19 |       dato = (int*)next(L);
+      |            ^
+exercises.c: At top level:
+exercises.c:27:27: error: unknown type name ‘StackP’; did you mean ‘Stack’?
+   27 | void imprime_y_vacia_pila(StackP*) {
+      |                           ^~~~~~
+      |                           Stack
+exercises.c:44:6: error: return type is an incomplete type
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘crea_lista’:
+exercises.c:48:14: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   48 |      element = i;
+      |              ^
+exercises.c:51:10: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   51 |   return L;
+      |          ^
+exercises.c:44:6: note: declared here
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘sumaLista’:
+exercises.c:63:10: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   63 |   dato = (int)first(L);
+      |          ^
+exercises.c:63:8: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   63 |   dato = (int)first(L);
+      |        ^
+exercises.c:65:10: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   65 |     suma +=dato;
+      |          ^~
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:88:16: error: expected expression before ‘int’
+   88 |       dato = (*int)next(L);
+      |                ^~~
+exercises.c:88:20: error: expected ‘;’ before ‘next’
+   88 |       dato = (*int)next(L);
+      |                    ^~~~
+      |                    ;
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:128:19: error: invalid use of void expression
+  128 |       push(stack, (void)&c);
+      |                   ^~~~~~~~
+exercises.c:130:54: error: comparison between pointer and integer [-Werror]
+  130 |       if (get_size(stack) == 0 ||((char*)pop(stack)) != '(') {
+      |                                                      ^~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: void value not ignored as it ought to be
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+test.c: In function ‘test_copia_pila’:
+test.c:201:5: error: implicit declaration of function ‘imprime_y_vacia_pila’ [-Werror=implicit-function-declaration]
+  201 |     imprime_y_vacia_pila(P1copy);
+      |     ^~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+8623c2e
