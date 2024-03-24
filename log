@@ -12361,3 +12361,50 @@ exercises.c:114:20: error: request for member ‘data’ in something not a stru
 cc1: all warnings being treated as errors
 Compilation failed
 f89f58e
+Sun 24 Mar 2024 01:00:13 AM UTC: 
+ exercises.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:97:3: error: unknown type name ‘stack’; did you mean ‘Stack’?
+   97 |   stack* auxiliar = create_stack();
+      |   ^~~~~
+      |   Stack
+exercises.c:97:21: error: initialization of ‘int *’ from incompatible pointer type ‘Stack *’ {aka ‘List *’} [-Werror=incompatible-pointer-types]
+   97 |   stack* auxiliar = create_stack();
+      |                     ^~~~~~~~~~~~
+exercises.c:100:12: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  100 |       push(auxiliar, data);
+      |            ^~~~~~~~
+      |            |
+      |            int *
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:11:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:103:20: error: passing argument 1 of ‘get_size’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  103 |     while(get_size(auxiliar) > 0){
+      |                    ^~~~~~~~
+      |                    |
+      |                    int *
+In file included from exercises.c:6,
+                 from test.c:5:
+arraylist.h:35:20: note: expected ‘List *’ but argument is of type ‘int *’
+   35 | int get_size(List *L);
+      |              ~~~~~~^
+In file included from test.c:5:
+exercises.c:104:24: error: passing argument 1 of ‘pop’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  104 |       void* data = pop(auxiliar);
+      |                        ^~~~~~~~
+      |                        |
+      |                        int *
+In file included from exercises.c:7,
+                 from test.c:5:
+stack.h:17:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   17 | void *pop(Stack *stack) { return popFront(stack); }
+      |           ~~~~~~~^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+9f5c8df

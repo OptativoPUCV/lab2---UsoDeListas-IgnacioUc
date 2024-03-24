@@ -95,25 +95,17 @@ Puedes usar una pila auxiliar.
 
 void copia_pila(Stack* P1, Stack* P2) {
   stack* auxiliar = create_stack();
-
-    for (int i = P1->size - 1; i >= 0; i--) {
-      void* elemento = P1->data[i];
-      void* copia_elemento = malloc(sizeof(elemento));
-      memcpy(copia_elemento, elemento, sizeof(elemento));
-      pushBack(auxiliar, copia_elemento);
+    while(get_size(P1) > 0){
+      void* data = pop(P1);
+      push(auxiliar, data);
+      
     }
-
-    for (int i = auxiliar->size - 1; i >= 0; i--) {
-      void* elemento = auxiliar->data[i];
-      void* copia_elemento = malloc(sizeof(elemento));
-      memcpy(copia_elemento, elemento, sizeof(elemento));
-      pushBack(P2, copia_elemento);
+    while(get_size(auxiliar) > 0){
+      void* data = pop(auxiliar);
+      push(P2, data);
+      push(P1, data);
     }
-
-    for (int i = 0; i < auxiliar->size; i++) {
-      free(auxiliar->data[i]);
-    }
-    free(auxiliar);
+    
   }
 
 
