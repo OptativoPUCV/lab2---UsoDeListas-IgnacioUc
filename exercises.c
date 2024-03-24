@@ -56,7 +56,7 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
 retorne la suma de sus elementos.
 */
-int sumaLista(ListL) {
+int sumaLista(List* L) {
   int suma = 0;
   int* dato;
 
@@ -78,7 +78,7 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(List L, int elem){
+void eliminaElementos(List* L, int elem){
   int* dato = (int)first(L);
   while(dato != NULL) {
     if(dato == elem){
@@ -90,14 +90,14 @@ void eliminaElementos(List L, int elem){
   }
 }
 
-/
+/*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.
 El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
-/
+*/
 
-void copia_pila(Stack P1, Stack* P2) {
+void copia_pila(Stack* P1, Stack* P2) {
   Stack* auxStack = create_stack();
 
   while (get_size(P1) > 0) {
@@ -118,7 +118,7 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
 
-int parentesisBalanceados(charcadena) {
+int parentesisBalanceados(char *cadena) {
   Stack* stack = create_stack();
   char c;
 
