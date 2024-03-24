@@ -12408,3 +12408,282 @@ stack.h:17:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is o
 cc1: all warnings being treated as errors
 Compilation failed
 9f5c8df
+Sun 24 Mar 2024 01:04:53 AM UTC: 
+ exercises.c | 115 +++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 55 insertions(+), 60 deletions(-)
+In file included from test.c:5:
+exercises.c:13:25: error: parameter 1 (‘L’) has incomplete type
+   13 | void imprime_lista(List L) {
+      |                    ~~~~~^
+exercises.c: In function ‘imprime_lista’:
+exercises.c:14:4: error: ‘intdato’ undeclared (first use in this function)
+   14 |    intdato;
+      |    ^~~~~~~
+exercises.c:14:4: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:15:4: error: ‘dato’ undeclared (first use in this function)
+   15 |    dato = (int)first(L);
+      |    ^~~~
+exercises.c: In function ‘imprime_y_vacia_pila’:
+exercises.c:27:6: error: type of ‘StackP’ defaults to ‘int’ [-Werror=implicit-int]
+   27 | void imprime_y_vacia_pila(StackP) {
+      |      ^~~~~~~~~~~~~~~~~~~~
+exercises.c:28:9: error: variable or field ‘dato’ declared void
+   28 |    void dato;
+      |         ^~~~
+exercises.c:30:22: error: ‘P’ undeclared (first use in this function)
+   30 |    while((dato = pop(P)) != NULL) {
+      |                      ^
+exercises.c: At top level:
+exercises.c:44:6: error: return type is an incomplete type
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘crea_lista’:
+exercises.c:48:14: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   48 |      element = i;
+      |              ^
+exercises.c:51:10: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   51 |   return L;
+      |          ^
+exercises.c:44:6: note: declared here
+   44 | List crea_lista() {
+      |      ^~~~~~~~~~
+exercises.c: In function ‘sumaLista’:
+exercises.c:59:5: error: type of ‘ListL’ defaults to ‘int’ [-Werror=implicit-int]
+   59 | int sumaLista(ListL) {
+      |     ^~~~~~~~~
+exercises.c:63:21: error: ‘L’ undeclared (first use in this function)
+   63 |   dato = (int)first(L);
+      |                     ^
+exercises.c:65:10: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   65 |     suma +=dato;
+      |          ^~
+exercises.c: At top level:
+exercises.c:71:1: error: expected identifier or ‘(’ before ‘[’ token
+   71 | [22:03]
+      | ^
+exercises.c:93:1: error: expected identifier or ‘(’ before ‘/’ token
+   93 | /
+      | ^
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:121:5: error: type of ‘charcadena’ defaults to ‘int’ [-Werror=implicit-int]
+  121 | int parentesisBalanceados(charcadena) {
+      |     ^~~~~~~~~~~~~~~~~~~~~
+exercises.c:125:30: error: ‘cadena’ undeclared (first use in this function); did you mean ‘charcadena’?
+  125 |   for (int i = 0; i < strlen(cadena); i++) {
+      |                              ^~~~~~
+      |                              charcadena
+exercises.c:128:19: error: invalid use of void expression
+  128 |       push(stack, (void)&c);
+      |                   ^~~~~~~~
+exercises.c:130:54: error: comparison between pointer and integer [-Werror]
+  130 |       if (get_size(stack) == 0 ||((char*)pop(stack)) != '(') {
+      |                                                      ^~
+exercises.c: At top level:
+exercises.c:143:1: error: unknown type name ‘Enviar’
+  143 | Enviar mensaje a @Rulo
+      | ^~~~~~
+exercises.c:143:16: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘a’
+  143 | Enviar mensaje a @Rulo
+      |                ^
+exercises.c:143:18: error: stray ‘@’ in program
+  143 | Enviar mensaje a @Rulo
+      |                  ^
+exercises.c:143:16: error: unknown type name ‘a’
+  143 | Enviar mensaje a @Rulo
+      |                ^
+In file included from test.c:6:
+arraylist.c: In function ‘create_list’:
+arraylist.c:15:34: error: invalid application of ‘sizeof’ to incomplete type ‘List’ {aka ‘struct List’}
+   15 |   List* L = (List*)malloc(sizeof(List));
+      |                                  ^~~~
+arraylist.c:16:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   16 |   L->current = 0;
+      |    ^~
+arraylist.c:17:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   17 |   L->size = 0;
+      |    ^~
+arraylist.c: In function ‘first’:
+arraylist.c:22:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   22 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:25:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   25 |   L->current = 0;
+      |    ^~
+arraylist.c:26:11: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   26 |   return L->data[L->current];
+      |           ^~
+arraylist.c:26:19: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   26 |   return L->data[L->current];
+      |                   ^~
+arraylist.c: In function ‘next’:
+arraylist.c:30:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   30 |   if(L->current < L->size - 1) {
+      |       ^~
+arraylist.c:30:20: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   30 |   if(L->current < L->size - 1) {
+      |                    ^~
+arraylist.c:31:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   31 |     L->current++;
+      |      ^~
+arraylist.c:32:13: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   32 |     return L->data[L->current];
+      |             ^~
+arraylist.c:32:21: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   32 |     return L->data[L->current];
+      |                     ^~
+arraylist.c: In function ‘pushFront’:
+arraylist.c:38:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   38 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:39:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   39 |     L->data[0] = dato;
+      |      ^~
+arraylist.c:40:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   40 |     L->size++;
+      |      ^~
+arraylist.c:43:16: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   43 |   for(int i = L->size; i > 0; i--) {
+      |                ^~
+arraylist.c:44:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   44 |     L->data[i] = L->data[i - 1];
+      |      ^~
+arraylist.c:44:19: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   44 |     L->data[i] = L->data[i - 1];
+      |                   ^~
+arraylist.c:46:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   46 |   L->data[0] = dato;
+      |    ^~
+arraylist.c:47:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   47 |   L->size++;
+      |    ^~
+arraylist.c: In function ‘pushBack’:
+arraylist.c:51:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   51 |   L->data[L->size] = dato;
+      |    ^~
+arraylist.c:51:12: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   51 |   L->data[L->size] = dato;
+      |            ^~
+arraylist.c:52:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   52 |   L->size++;
+      |    ^~
+arraylist.c: In function ‘pushCurrent’:
+arraylist.c:56:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   56 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:57:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   57 |     L->data[0] = dato;
+      |      ^~
+arraylist.c:58:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   58 |     L->size++;
+      |      ^~
+arraylist.c:61:16: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   61 |   for(int i = L->size; i > L->current; i--) {
+      |                ^~
+arraylist.c:61:29: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   61 |   for(int i = L->size; i > L->current; i--) {
+      |                             ^~
+arraylist.c:62:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   62 |     L->data[i] = L->data[i - 1];
+      |      ^~
+arraylist.c:62:19: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   62 |     L->data[i] = L->data[i - 1];
+      |                   ^~
+arraylist.c:64:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   64 |   L->data[L->current + 1] = dato;
+      |    ^~
+arraylist.c:64:12: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   64 |   L->data[L->current + 1] = dato;
+      |            ^~
+arraylist.c:65:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   65 |   L->size++;
+      |    ^~
+arraylist.c: In function ‘popFront’:
+arraylist.c:69:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   69 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:72:17: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   72 |   void* dato = L->data[0];
+      |                 ^~
+arraylist.c:73:23: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   73 |   for(int i = 0; i < L->size - 1; i++) {
+      |                       ^~
+arraylist.c:74:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   74 |     L->data[i] = L->data[i + 1];
+      |      ^~
+arraylist.c:74:19: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   74 |     L->data[i] = L->data[i + 1];
+      |                   ^~
+arraylist.c:76:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   76 |   L->size--;
+      |    ^~
+arraylist.c: In function ‘popBack’:
+arraylist.c:81:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   81 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:84:17: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   84 |   void* dato = L->data[L->size - 1];
+      |                 ^~
+arraylist.c:84:25: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   84 |   void* dato = L->data[L->size - 1];
+      |                         ^~
+arraylist.c:85:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   85 |   L->size--;
+      |    ^~
+arraylist.c: In function ‘popCurrent’:
+arraylist.c:90:7: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   90 |   if(L->size == 0) {
+      |       ^~
+arraylist.c:93:17: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   93 |   void* dato = L->data[L->current];
+      |                 ^~
+arraylist.c:93:25: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   93 |   void* dato = L->data[L->current];
+      |                         ^~
+arraylist.c:94:16: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   94 |   for(int i = L->current; i < L->size - 1; i++) {
+      |                ^~
+arraylist.c:94:32: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   94 |   for(int i = L->current; i < L->size - 1; i++) {
+      |                                ^~
+arraylist.c:95:6: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   95 |     L->data[i] = L->data[i + 1];
+      |      ^~
+arraylist.c:95:19: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   95 |     L->data[i] = L->data[i + 1];
+      |                   ^~
+arraylist.c:97:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   97 |   L->size--;
+      |    ^~
+arraylist.c:98:4: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+   98 |   L->current--;
+      |    ^~
+arraylist.c: In function ‘get_size’:
+arraylist.c:103:11: error: invalid use of incomplete typedef ‘List’ {aka ‘struct List’}
+  103 |   return L->size;
+      |           ^~
+test.c: In function ‘test_crea_lista’:
+test.c:61:15: error: void value not ignored as it ought to be
+   61 |     List* L = crea_lista();
+      |               ^~~~~~~~~~
+test.c: In function ‘test_elimina_elemento’:
+test.c:132:5: error: implicit declaration of function ‘eliminaElementos’; did you mean ‘test_elimina_elemento’? [-Werror=implicit-function-declaration]
+  132 |     eliminaElementos(L, elem);
+      |     ^~~~~~~~~~~~~~~~
+      |     test_elimina_elemento
+test.c: In function ‘test_copia_pila’:
+test.c:175:5: error: implicit declaration of function ‘copia_pila’; did you mean ‘test_copia_pila’? [-Werror=implicit-function-declaration]
+  175 |     copia_pila(P1, P2);
+      |     ^~~~~~~~~~
+      |     test_copia_pila
+In file included from test.c:6:
+arraylist.c: In function ‘first’:
+arraylist.c:27:1: error: control reaches end of non-void function [-Werror=return-type]
+   27 | }
+      | ^
+arraylist.c: In function ‘get_size’:
+arraylist.c:104:1: error: control reaches end of non-void function [-Werror=return-type]
+  104 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+97a5826
