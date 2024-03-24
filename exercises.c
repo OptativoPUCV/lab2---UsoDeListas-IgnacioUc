@@ -81,9 +81,9 @@ void eliminaElementos(List L, int elem) {
     dato = (int*)first(L); // Obtienes el primer elemento de la lista
     while(dato != NULL) { // Mientras no llegues al final de la lista
         if(dato != elem) {
-          
-            popCurrent(L); 
           free(popcurrent(L));
+            popCurrent(L); 
+          
         } else {
             dato = (int*)next(L); 
         }
