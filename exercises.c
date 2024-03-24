@@ -43,14 +43,13 @@ Al finalizar retorna la lista creada.
 
 List* crea_lista() {
    List* L = create_list();
-  for (int i = 1; i <= 10; i++){
-    int* elementos = (int*)malloc(sizeof(int));
-    *elementos = i;
-    pushBack(L, elementos);
-  }
-  return L;
-
-
+   for (int i = 1; i <= 10; i++){
+      int* elementos = (int*)malloc(sizeof(int));
+      *elementos = i;
+      pushBack(L, elementos);
+   }
+   return L;
+}
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
