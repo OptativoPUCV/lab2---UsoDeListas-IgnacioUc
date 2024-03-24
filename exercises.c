@@ -68,7 +68,7 @@ int sumaLista(ListL) {
 
    return suma;
 }
-[22:03]
+
 /*
 Ejercicio 3.
 Crea una función que reciba una lista de punteros a int (int*) y
@@ -140,4 +140,3 @@ int parentesisBalanceados(charcadena) {
   }
 }
 
-Enviar mensaje a @Rulo
