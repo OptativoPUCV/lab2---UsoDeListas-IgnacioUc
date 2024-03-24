@@ -81,13 +81,13 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List* L, int elem){
-  int* dato = (int*)first(L);
-  while(dato != NULL) {
-    if(*dato == elem){
+  int* datos = (int*)first(L);
+  while(datos != NULL) {
+    if(*datos == elem){
       free(popCurrent(L));
     } 
     else {
-      dato = (int*)next(L);
+      datos = (int*)next(L);
     }
   }
 }
