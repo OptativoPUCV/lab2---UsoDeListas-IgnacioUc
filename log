@@ -11935,3 +11935,60 @@ exercises.c:115:20: error: request for member ‘data’ in something not a stru
 cc1: all warnings being treated as errors
 Compilation failed
 a76d6d2
+Sun 24 Mar 2024 12:16:03 AM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c:79:28: error: parameter 1 (‘L’) has incomplete type
+   79 | void eliminaElementos(List L, int elem) {
+      |                       ~~~~~^
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:82:17: error: comparison between pointer and integer [-Werror]
+   82 |         if(dato != elem) {
+      |                 ^~
+exercises.c: In function ‘copia_pila’:
+exercises.c:98:3: error: unknown type name ‘stack’; did you mean ‘Stack’?
+   98 |   stack* auxiliar = create_stack();
+      |   ^~~~~
+      |   Stack
+exercises.c:98:21: error: initialization of ‘int *’ from incompatible pointer type ‘Stack *’ {aka ‘List *’} [-Werror=incompatible-pointer-types]
+   98 |   stack* auxiliar = create_stack();
+      |                     ^~~~~~~~~~~~
+exercises.c:100:20: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  100 |     for (int i = P1->size - 1; i >= 0; i--) {
+      |                    ^~
+exercises.c:101:26: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  101 |       void* elemento = P1->data[i];
+      |                          ^~
+exercises.c:103:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  103 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:104:16: error: passing argument 1 of ‘pushBack’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  104 |       pushBack(auxiliar, copia_elemento);
+      |                ^~~~~~~~
+      |                |
+      |                int *
+In file included from exercises.c:6,
+                 from test.c:5:
+arraylist.h:20:21: note: expected ‘List *’ but argument is of type ‘int *’
+   20 | void pushBack(List *L, void *dato);
+      |               ~~~~~~^
+In file included from test.c:5:
+exercises.c:107:26: error: request for member ‘size’ in something not a structure or union
+  107 |     for (int i = auxiliar->size - 1; i >= 0; i--) {
+      |                          ^~
+exercises.c:108:32: error: request for member ‘data’ in something not a structure or union
+  108 |       void* elemento = auxiliar->data[i];
+      |                                ^~
+exercises.c:110:46: error: argument to ‘sizeof’ in ‘memcpy’ call is the same expression as the source; did you mean to dereference it? [-Werror=sizeof-pointer-memaccess]
+  110 |       memcpy(copia_elemento, elemento, sizeof(elemento));
+      |                                              ^
+exercises.c:114:33: error: request for member ‘size’ in something not a structure or union
+  114 |     for (int i = 0; i < auxiliar->size; i++) {
+      |                                 ^~
+exercises.c:115:20: error: request for member ‘data’ in something not a structure or union
+  115 |       free(auxiliar->data[i]);
+      |                    ^~
+cc1: all warnings being treated as errors
+Compilation failed
+b5c6b2d
