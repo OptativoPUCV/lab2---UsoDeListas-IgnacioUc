@@ -44,9 +44,9 @@ Al finalizar retorna la lista creada.
 List* crea_lista() {
   List* lista = create_list();
     for (int i = 1; i <= 10; i++) {
-      int* elemento = (int*)malloc(sizeof(int)); 
+      int* element = (int*)malloc(sizeof(int)); 
       *elemento = i; 
-      pushBack(lista, elemento); 
+      pushBack(lista, element); 
     }
     return lista;
   }
@@ -77,14 +77,14 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List* L, int elem) {
-    int* dato = (int*)first(L); 
-    while(dato != NULL) { 
-        if(*dato == elem) {
-            free(popCurrent(L)); 
-        } else {
-            dato = (int*)next(L); 
-        }
+  int* dato = (int*)first(L); 
+  while(dato != NULL) { 
+    if(*dato == elem) {
+      free(popCurrent(L)); 
+    } else {
+      dato = (int*)next(L); 
     }
+  }
 }
 /*
 Ejercicio 4.
